@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   ArrowRight,
   BookOpen,
@@ -11,16 +11,18 @@ import {
   Smartphone,
   Sprout,
 } from 'lucide-react';
-import { AGRI_NEXT_PILLARS, CAO_BANG_SPECIALTIES } from '../data/agriNextContent';
+import { AGRI_NEXT_PILLARS } from '../data/agriNextContent';
 import { BrocadeStrip, GrainMascot, LeafMascot, Youth4ClimateLogo, patternStyle } from './BrandAssets';
 import type { GiftStatus } from '../types';
+import { CAO_BANG_XANH, UPCOMING_WEBINAR } from '../data/projectShowcase';
 import { LiveQrCode } from './LiveQrCode';
+import { CaoBangExplorer } from './CaoBangExplorer';
 import type { QrTarget } from './QrPlayModal';
 
 interface LandingSectionProps {
   onStartGames: (initialGame?: 'farm_sim' | 'cao_bang_quiz' | 'market_basket') => void;
   onOpenQrModal: (target?: QrTarget) => void;
-  onOpenProject: () => void;
+  onOpenProject: (section?: string) => void;
   onOpenStickerHunt: () => void;
   giftStatus: GiftStatus | null;
   onOpenBoothMode: () => void;
@@ -42,15 +44,6 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
   onExploreCrop,
   communityStats,
 }) => {
-  const [selectedCropId, setSelectedCropId] = useState<string>(CAO_BANG_SPECIALTIES[0].id);
-  const selectedCrop =
-    CAO_BANG_SPECIALTIES.find((c) => c.id === selectedCropId) ?? CAO_BANG_SPECIALTIES[0];
-
-  const handleSelectCrop = (cropId: string) => {
-    setSelectedCropId(cropId);
-    onExploreCrop(cropId);
-  };
-
   return (
     <div className="space-y-16 pb-16">
       {/* HERO PANORAMA — Framed Vietnamese Heritage Storybook Banner (inspired by Văn Hoá Việt Nam) */}
@@ -126,7 +119,7 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
                     </button>
                     <button
                       type="button"
-                      onClick={onOpenProject}
+                      onClick={() => onOpenProject()}
                       className="min-h-[48px] inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#EFF5D2] hover:bg-white text-[#3E5021] font-bold text-sm sm:text-base transition-colors whitespace-nowrap shrink-0 cursor-pointer"
                     >
                       <BookOpen className="w-4 h-4" />
@@ -262,6 +255,41 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
         </div>
       </section>
 
+      {/* NOW HAPPENING — Cao Bằng Xanh contest + upcoming webinar */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid md:grid-cols-12 gap-4">
+          <button
+            type="button"
+            onClick={() => onOpenProject('du-an-cao-bang-xanh')}
+            className="md:col-span-8 text-left rounded-2xl bg-white border border-[#556B2F]/15 hover:border-[#8FA31E] transition-colors p-5 sm:p-6 flex items-center gap-4 cursor-pointer"
+          >
+            <LeafMascot mood="telescope" className="w-16 h-16 shrink-0" />
+            <div className="flex-1 min-w-0 space-y-1">
+              <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#8FA31E]">
+                Cuộc thi đang mở · Hạn nộp {CAO_BANG_XANH.dates[1].date}
+              </div>
+              <div className="text-lg sm:text-xl font-extrabold text-[#212122] leading-snug">
+                “{CAO_BANG_XANH.name}” – {CAO_BANG_XANH.subtitle}
+              </div>
+              <div className="text-xs sm:text-sm text-[#585A56]">
+                Bạn trẻ 18–29 tuổi kể chuyện nông nghiệp bản địa Cao Bằng bằng bài viết hoặc video · Giải Nhất 3.000.000đ
+              </div>
+            </div>
+            <ArrowRight className="w-5 h-5 text-[#556B2F] shrink-0 hidden sm:block" />
+          </button>
+          <button
+            type="button"
+            onClick={() => onOpenProject('du-an-cao-bang-xanh')}
+            className="md:col-span-4 text-left rounded-2xl bg-[#212122] hover:bg-[#2E2E30] transition-colors text-white p-5 sm:p-6 flex flex-col gap-2 cursor-pointer"
+          >
+            <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#C6D870]">
+              Webinar · {UPCOMING_WEBINAR.status}
+            </div>
+            <div className="text-lg font-extrabold leading-snug">{UPCOMING_WEBINAR.title}</div>
+          </button>
+        </div>
+      </section>
+
       {/* CHAPTER 01: DEEP OLIVE HERITAGE PANEL — Bối cảnh & Sứ mệnh Agri-Next */}
       <section id="cau-chuyen-du-an" className="max-w-6xl mx-auto px-4 sm:px-6 scroll-mt-24">
         <div className="rounded-2xl overflow-hidden bg-[#556B2F] text-white border border-[#3E5021]">
@@ -307,7 +335,7 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
                 </button>
                 <button
                   type="button"
-                  onClick={onOpenProject}
+                  onClick={() => onOpenProject()}
                   className="px-5 py-2.5 rounded-lg bg-[#F4991A] hover:bg-[#D9810D] text-[#212122] font-bold text-sm transition-colors cursor-pointer whitespace-nowrap shrink-0"
                 >
                   Xem toàn bộ dự án →
@@ -329,111 +357,13 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
         </div>
       </section>
 
-      {/* CHAPTER 02: WARM PARCHMENT PANEL — Bản đồ Nông sản Cao Bằng (Interactive Explorer) */}
-      <section id="ban-do-nong-san" className="max-w-6xl mx-auto px-4 sm:px-6 scroll-mt-24">
-        <div className="parchment-surface rounded-2xl border border-[#556B2F]/20 overflow-hidden">
-          <div className="p-7 sm:p-10 lg:p-12 space-y-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-              <div className="space-y-2 max-w-2xl">
-                <div className="text-xs font-bold tracking-wider text-[#556B2F]">
-                  02. Bản đồ Nông sản Đặc hữu Cao Bằng
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#212122] leading-tight">
-                  Khám phá 4 báu vật nông nghiệp núi rừng Đông Bắc
-                </h2>
-              </div>
-              <p className="text-xs sm:text-sm text-[#585A56] max-w-sm">
-                Chọn từng nông sản để tìm hiểu đặc trưng thổ nhưỡng, thách thức khí hậu và giải
-                pháp canh tác tái sinh của Agri-Next.
-              </p>
-            </div>
-
-            {/* Interactive Segmented Selector Tabs (functional buttons) */}
-            <div
-              role="tablist"
-              aria-label="Danh sách nông sản Cao Bằng"
-              className="flex flex-wrap gap-2 p-1.5 rounded-xl bg-[#556B2F]/10"
-            >
-              {CAO_BANG_SPECIALTIES.map((crop) => {
-                const active = crop.id === selectedCrop.id;
-                return (
-                  <button
-                    key={crop.id}
-                    role="tab"
-                    aria-selected={active}
-                    type="button"
-                    onClick={() => handleSelectCrop(crop.id)}
-                    className={`px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
-                      active
-                        ? 'bg-[#556B2F] text-white shadow-sm'
-                        : 'text-[#3E5021] hover:bg-[#556B2F]/10'
-                    }`}
-                  >
-                    {crop.name}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Asymmetric 2-Column Heritage Plate + Detailed Insight */}
-            <div className="grid lg:grid-cols-12 gap-8 items-stretch">
-              <div className="lg:col-span-5 rounded-xl overflow-hidden border border-[#556B2F]/15 bg-[#EFF5D2]">
-                <img
-                  src="/src/assets/images/caobang_specialties_plate_1795619410092.jpg"
-                  alt="Bộ tranh minh họa 4 nông sản chủ lực Cao Bằng gồm hạt dẻ Trùng Khánh, thạch đen Đông Khê, miến dong Phia Đén và lê Bảo Lạc"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover min-h-[260px]"
-                />
-              </div>
-
-              <div className="lg:col-span-7 flex flex-col justify-between space-y-6 bg-white/80 rounded-xl p-6 sm:p-8 border border-[#556B2F]/12">
-                <div className="space-y-4">
-                  <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-[#585A56]">
-                    <span>{selectedCrop.regionLabel}</span>
-                    <span aria-hidden="true">·</span>
-                    <span>{selectedCrop.season}</span>
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#556B2F]">
-                    {selectedCrop.name}
-                  </h3>
-                  <p className="text-sm sm:text-base text-[#212122] leading-relaxed">
-                    {selectedCrop.description}
-                  </p>
-
-                  <div className="grid sm:grid-cols-2 gap-5 pt-2 border-t border-[#556B2F]/12">
-                    <div className="space-y-1.5">
-                      <div className="text-xs font-bold text-[#D9810D]">Thách thức khí hậu</div>
-                      <p className="text-xs sm:text-sm text-[#585A56] leading-relaxed">
-                        {selectedCrop.climateChallenge}
-                      </p>
-                    </div>
-                    <div className="space-y-1.5">
-                      <div className="text-xs font-bold text-[#556B2F]">Hướng đi Agri-Next</div>
-                      <p className="text-xs sm:text-sm text-[#585A56] leading-relaxed">
-                        {selectedCrop.agriNextSolution}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-[#556B2F]/12 flex flex-wrap items-center justify-between gap-4">
-                  <div className="text-xs font-semibold text-[#3E5021]">
-                    {selectedCrop.keyMetric}
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => onStartGames('cao_bang_quiz')}
-                    className="inline-flex items-center gap-2 text-sm font-bold text-[#556B2F] hover:text-[#8FA31E] transition-colors cursor-pointer whitespace-nowrap shrink-0"
-                  >
-                    <span>Kiểm tra kiến thức về nông sản này</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* CHAPTER 02: Bản đồ Nông sản Cao Bằng (Interactive Explorer) */}
+      <CaoBangExplorer
+        className="max-w-6xl mx-auto px-4 sm:px-6"
+        kicker="02. Bản đồ Nông sản Đặc hữu Cao Bằng"
+        onExploreCrop={onExploreCrop}
+        onPlayQuiz={() => onStartGames('cao_bang_quiz')}
+      />
 
       {/* CHAPTER 03: BA TRỤ CỘT HÀNH ĐỘNG & CẦU NỐI TỚI CHUỖI GAME */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 space-y-10">

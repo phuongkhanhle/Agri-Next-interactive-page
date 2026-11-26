@@ -382,7 +382,7 @@ export default function App() {
         {activeView === 'landing' && (
           <LandingSection
             onStartGames={handleStartGames}
-            onOpenProject={() => navigateTo('project')}
+            onOpenProject={(section?: string) => navigateTo('project', section)}
             onOpenStickerHunt={() => navigateTo('sticker')}
             giftStatus={giftStatus}
             onOpenQrModal={openQrModal}
@@ -393,7 +393,12 @@ export default function App() {
         )}
 
         {activeView === 'project' && (
-          <ProjectShowcase giftStatus={giftStatus} onStartStickerHunt={() => navigateTo('sticker')} />
+          <ProjectShowcase
+            giftStatus={giftStatus}
+            onStartStickerHunt={() => navigateTo('sticker')}
+            onPlayCaoBangQuiz={() => handleStartGames('cao_bang_quiz')}
+            onExploreCrop={(cropId) => trackEvent('crop_explored', cropId)}
+          />
         )}
 
         {activeView === 'sticker' && (

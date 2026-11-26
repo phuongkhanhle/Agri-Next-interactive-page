@@ -34,13 +34,25 @@ interface StickerHuntProps {
 
 type Phase = 'intro' | 'quiz' | 'result' | 'voucher';
 
-function pickQuestions(): StickerQuestion[] {
-  const pool = [...STICKER_QUESTIONS];
+function shuffle<T>(arr: T[]): T[] {
+  const pool = [...arr];
   for (let i = pool.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [pool[i], pool[j]] = [pool[j], pool[i]];
   }
-  return pool.slice(0, STICKER_QUIZ_LENGTH);
+  return pool;
+}
+
+/** Each round mixes: 2 về nông nghiệp Cao Bằng, 1 về cuộc thi Cao Bằng Xanh, còn lại về dự án. */
+function pickQuestions(): StickerQuestion[] {
+  const agri = shuffle(STICKER_QUESTIONS.filter((q) => q.section === 'du-an-nong-nghiep-cao-bang')).slice(0, 2);
+  const contest = shuffle(STICKER_QUESTIONS.filter((q) => q.section === 'du-an-cao-bang-xanh')).slice(0, 1);
+  const picked = new Set([...agri, ...contest].map((q) => q.id));
+  const rest = shuffle(STICKER_QUESTIONS.filter((q) => !picked.has(q.id))).slice(
+    0,
+    STICKER_QUIZ_LENGTH - picked.size
+  );
+  return shuffle([...agri, ...contest, ...rest]);
 }
 
 const STICKER_SHEET = [

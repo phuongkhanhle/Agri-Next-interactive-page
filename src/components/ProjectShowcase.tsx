@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, CalendarRange, CheckCircle2, Gift, Mail, Quote, Sprout, Users } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Gift, Mail, Mic, Quote, Sprout, Trophy, Users } from 'lucide-react';
+import { CaoBangExplorer } from './CaoBangExplorer';
 import {
   BOOTCAMP_FORMAT,
   BOOTCAMP_MODULES,
@@ -21,7 +22,8 @@ import {
   SDGS,
   SHOWCASE_SECTION_LABELS,
   TEAM,
-  TIMELINE,
+  CAO_BANG_XANH,
+  UPCOMING_WEBINAR,
   WEBINARS,
   type ShowcaseSectionId,
 } from '../data/projectShowcase';
@@ -41,6 +43,8 @@ import type { GiftStatus } from '../types';
 interface ProjectShowcaseProps {
   giftStatus: GiftStatus | null;
   onStartStickerHunt: () => void;
+  onPlayCaoBangQuiz: () => void;
+  onExploreCrop?: (cropId: string) => void;
 }
 
 const SectionKicker: React.FC<{ no: string; children: React.ReactNode; light?: boolean }> = ({
@@ -83,6 +87,8 @@ const PHASE_TONE: Record<string, { card: string; text: string; sub: string; chip
 export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
   giftStatus,
   onStartStickerHunt,
+  onPlayCaoBangQuiz,
+  onExploreCrop,
 }) => {
   const jumpTo = (id: ShowcaseSectionId) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -206,11 +212,174 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
           </div>
         </section>
 
+        {/* 02 — CAO BẰNG XANH CONTEST + UPCOMING WEBINAR */}
+        <section id="du-an-cao-bang-xanh" className="scroll-mt-24 space-y-5">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div className="space-y-2">
+              <SectionKicker no="02">Đang diễn ra</SectionKicker>
+              <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight text-[#212122]">
+                Cuộc thi “{CAO_BANG_XANH.name}” & Webinar sắp tới
+              </h2>
+            </div>
+            <span className="px-3 py-1.5 rounded-full bg-[#556B2F] text-white text-xs font-bold">
+              {CAO_BANG_XANH.hashtag}
+            </span>
+          </div>
+
+          <div className="grid lg:grid-cols-12 gap-5 items-stretch">
+            {/* Contest card */}
+            <article className="lg:col-span-8 rounded-2xl overflow-hidden bg-white border border-[#556B2F]/15 flex flex-col">
+              <div className="relative p-6 sm:p-8 text-white" style={patternStyle('moss', 300)}>
+                <div className="absolute inset-0 bg-[#3E5021]/55" aria-hidden="true" />
+                <div className="relative flex items-start gap-4">
+                  <div className="flex-1 space-y-2">
+                    <div className="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider bg-[#F4991A] text-[#212122] px-2.5 py-1">
+                      <Trophy className="w-3.5 h-3.5" /> Cuộc thi
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-black leading-tight">
+                      {CAO_BANG_XANH.name}
+                      <span className="block text-base sm:text-lg font-bold text-[#EFF5D2] mt-1">
+                        {CAO_BANG_XANH.subtitle}
+                      </span>
+                    </h3>
+                    <p className="text-sm text-[#EFF5D2] italic">“{CAO_BANG_XANH.theme}”</p>
+                  </div>
+                  <LeafMascot mood="telescope" className="w-20 h-20 shrink-0 hidden sm:block" />
+                </div>
+              </div>
+
+              <div className="p-6 sm:p-8 space-y-6 flex-1">
+                <p className="text-sm sm:text-base text-[#212122] leading-relaxed">{CAO_BANG_XANH.intro}</p>
+                <div className="rounded-xl bg-[#EFF5D2] px-4 py-3 text-sm font-semibold text-[#3E5021]">
+                  Ai được tham gia? {CAO_BANG_XANH.who}
+                </div>
+
+                <div>
+                  <div className="text-sm font-extrabold text-[#212122] mb-3">Chọn 1 trong 4 hướng chủ đề</div>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {CAO_BANG_XANH.topics.map((t, i) => (
+                      <div key={t.title} className="rounded-xl border border-[#556B2F]/15 p-4 flex gap-3">
+                        <div className="w-8 h-8 shrink-0 rotate-45 rounded-md bg-[#8FA31E] flex items-center justify-center">
+                          <span className="-rotate-45 text-xs font-black text-white">{i + 1}</span>
+                        </div>
+                        <div>
+                          <div className="text-sm font-extrabold text-[#212122] leading-snug">{t.title}</div>
+                          <div className="text-xs text-[#585A56] mt-0.5">VD: {t.example}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {CAO_BANG_XANH.formats.map((f, i) => (
+                    <div key={f.title} className="rounded-xl bg-[#F9FBF1] border border-[#C6D870] p-4">
+                      <div className="text-xs font-bold text-[#8FA31E] uppercase">Dạng {i + 1}</div>
+                      <div className="text-sm font-extrabold text-[#212122]">{f.title}</div>
+                      <div className="text-xs text-[#585A56] mt-0.5">{f.detail}</div>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs sm:text-sm text-[#585A56]">
+                  <strong className="text-[#556B2F]">Điểm cộng:</strong> {CAO_BANG_XANH.bonus} Chấm điểm:{' '}
+                  {CAO_BANG_XANH.scoring}.
+                </p>
+
+                <div className="grid sm:grid-cols-12 gap-4">
+                  <div className="sm:col-span-5 space-y-2">
+                    <div className="text-sm font-extrabold text-[#212122]">Mốc quan trọng</div>
+                    {CAO_BANG_XANH.dates.map((d, i) => (
+                      <div key={d.date} className="flex items-center gap-3 text-sm">
+                        <span
+                          className={`font-mono-num font-bold px-2 py-0.5 rounded ${
+                            i === 1 ? 'bg-[#F4991A] text-[#212122]' : 'bg-[#EFF5D2] text-[#556B2F]'
+                          }`}
+                        >
+                          {d.date}
+                        </span>
+                        <span className="text-[#212122]">{d.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="sm:col-span-7 space-y-2">
+                    <div className="text-sm font-extrabold text-[#212122]">Giải thưởng</div>
+                    <div className="grid grid-cols-2 gap-2">
+                      {CAO_BANG_XANH.prizes.map((pz, i) => (
+                        <div
+                          key={pz.title}
+                          className={`rounded-lg p-3 ${i === 0 ? 'bg-[#F4991A] text-[#212122]' : 'bg-[#EFF5D2] text-[#212122]'}`}
+                        >
+                          <div className="text-[11px] font-bold uppercase opacity-80">{pz.title}</div>
+                          <div className={`font-extrabold ${i < 3 ? 'font-mono-num text-base' : 'text-xs leading-snug'}`}>
+                            {pz.value}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-xs text-[#585A56]">{CAO_BANG_XANH.allEntrants}</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="px-6 sm:px-8 py-4 bg-[#556B2F] text-white flex flex-wrap items-center justify-between gap-3">
+                <p className="text-xs sm:text-sm text-[#EFF5D2] max-w-xl">{CAO_BANG_XANH.howToSubmit}</p>
+                <a
+                  href={SOCIAL_LINKS.facebook}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#F4991A] hover:bg-[#D9810D] text-[#212122] text-sm font-bold whitespace-nowrap"
+                >
+                  Xem thể lệ & nộp bài <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </article>
+
+            {/* Webinar card */}
+            <article className="lg:col-span-4 lg:self-start lg:sticky lg:top-24 rounded-2xl overflow-hidden bg-[#212122] text-white flex flex-col">
+              <div className="p-6 sm:p-7 flex-1 flex flex-col gap-4">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-[#C6D870]">
+                    <Mic className="w-3.5 h-3.5" /> Webinar
+                  </span>
+                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-[#F4991A] text-[#212122]">
+                    {UPCOMING_WEBINAR.status}
+                  </span>
+                </div>
+                <h3 className="text-2xl font-black leading-tight">{UPCOMING_WEBINAR.title}</h3>
+                <p className="text-sm text-white/80 leading-relaxed">{UPCOMING_WEBINAR.blurb}</p>
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="rounded-xl bg-[#556B2F] p-3 text-center">
+                    <div className="text-lg font-black">Kinh tế</div>
+                    <div className="text-[11px] text-[#EFF5D2]">thu nhập cho nông dân trẻ</div>
+                  </div>
+                  <div className="rounded-xl bg-[#8FA31E] p-3 text-center">
+                    <div className="text-lg font-black">Bền vững</div>
+                    <div className="text-[11px] text-white/90">đất, rừng & khí hậu</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <LeafMascot mood="video" className="w-16 h-16 shrink-0" />
+                  <p className="text-xs text-white/75">Bạn chọn bên nào? Mang câu trả lời của bạn đến webinar nhé!</p>
+                </div>
+              </div>
+              <a
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="px-6 py-4 bg-[#F4991A] hover:bg-[#D9810D] text-[#212122] text-sm font-extrabold flex items-center justify-between gap-2"
+              >
+                {UPCOMING_WEBINAR.cta}
+                <ArrowRight className="w-4 h-4 shrink-0" />
+              </a>
+            </article>
+          </div>
+        </section>
+
         {/* 02 — CONTEXT */}
         <section id="du-an-boi-canh" className="scroll-mt-24 space-y-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="space-y-2">
-              <SectionKicker no="02">Bối cảnh</SectionKicker>
+              <SectionKicker no="03">Bối cảnh</SectionKicker>
               <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight text-[#212122] max-w-2xl">
                 Vì sao Cao Bằng cần những “mầm rễ trẻ”?
               </h2>
@@ -246,10 +415,27 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
           </div>
         </section>
 
+        {/* 04 — CAO BẰNG AGRICULTURE (interactive explorer, restored from v1) */}
+        <div id="du-an-nong-nghiep-cao-bang" className="scroll-mt-24 space-y-4">
+          <div className="space-y-2">
+            <SectionKicker no="04">Nông nghiệp Cao Bằng</SectionKicker>
+            <p className="text-sm sm:text-base text-[#585A56] max-w-3xl">
+              Trước khi đến với hoạt động của Agri-Next, cùng hiểu vì sao những nông sản núi rừng Cao Bằng đáng
+              được gìn giữ — chạm vào từng nông sản để xem câu chuyện của nó.
+            </p>
+          </div>
+          <CaoBangExplorer
+            id="ban-do-nong-san-du-an"
+            kicker="Bản đồ Nông sản Đặc hữu Cao Bằng"
+            onExploreCrop={onExploreCrop}
+            onPlayQuiz={onPlayCaoBangQuiz}
+          />
+        </div>
+
         {/* 03 — 3 PHASES */}
         <section id="du-an-giai-doan" className="scroll-mt-24 space-y-6">
           <div className="space-y-2">
-            <SectionKicker no="03">3 hoạt động chính</SectionKicker>
+            <SectionKicker no="05">3 hoạt động chính</SectionKicker>
             <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight text-[#212122]">
               Học — Thực hành — Lan tỏa
             </h2>
@@ -286,7 +472,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
           <div className="p-6 sm:p-8 space-y-6">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div className="space-y-2">
-                <SectionKicker no="04">Bootcamp Agri-Next</SectionKicker>
+                <SectionKicker no="06">Bootcamp Agri-Next</SectionKicker>
                 <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight text-[#212122]">
                   5 ngày · 20 học viên · 6 module
                 </h2>
@@ -330,7 +516,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
           </div>
         </section>
 
-        {/* 05 — DEMO FIELD */}
+        {/* 07 — DEMO FIELD (simplified: native vegetable garden + medicinal garden) */}
         <section id="du-an-ruong-mau" className="scroll-mt-24 grid lg:grid-cols-12 gap-6 items-stretch">
           <div className="lg:col-span-5 rounded-2xl overflow-hidden relative min-h-[280px]">
             <img
@@ -340,33 +526,27 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#212122]/85 to-transparent p-6">
               <div className="font-mono-num text-4xl font-bold text-white">1.000 m²</div>
-              <div className="text-sm font-semibold text-[#EFF5D2]">Ruộng mẫu tại Cao Bằng · tưới tự động</div>
+              <div className="text-sm font-semibold text-[#EFF5D2]">Ruộng mẫu Agri-Next tại Cao Bằng</div>
             </div>
           </div>
           <div className="lg:col-span-7 space-y-4">
-            <SectionKicker no="05">Không gian học tập & Ruộng mẫu</SectionKicker>
+            <SectionKicker no="07">Không gian Ruộng mẫu</SectionKicker>
             <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight text-[#212122]">
-              Nơi thanh niên thử nghiệm và khám phá lại cây bản địa
+              Một khu vườn để thanh niên học từ đất
             </h2>
-            <div className="space-y-3">
-              {FIELD_ZONES.map((z, i) => (
-                <div key={z.name} className="rounded-xl bg-[#EFF5D2] border border-[#C6D870] p-4 flex gap-4">
-                  <div className="shrink-0 text-center">
-                    <div className="text-[10px] font-bold text-[#8FA31E] uppercase">Khu {i + 1}</div>
-                    <div className="font-mono-num text-sm font-bold text-[#556B2F]">{z.area}</div>
-                  </div>
-                  <div>
-                    <div className="text-sm font-extrabold text-[#212122]">{z.name}</div>
-                    <div className="text-xs sm:text-sm text-[#585A56] leading-relaxed">{z.detail}</div>
-                  </div>
+            <p className="text-sm sm:text-base text-[#585A56] leading-relaxed">
+              Ruộng mẫu là không gian do chính các bạn trẻ vận hành — nơi thực hành canh tác tái sinh và khám phá lại
+              các loài cây bản địa của Cao Bằng.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {FIELD_ZONES.map((z) => (
+                <div key={z.name} className="rounded-2xl bg-[#EFF5D2] border border-[#C6D870] p-5 space-y-2">
+                  <LeafMascot mood={z.mascot} className="w-14 h-14" />
+                  <div className="text-base font-extrabold text-[#212122]">{z.name}</div>
+                  <div className="text-sm text-[#585A56] leading-relaxed">{z.detail}</div>
                 </div>
               ))}
             </div>
-            <p className="text-xs sm:text-sm text-[#585A56]">
-              Học viên sau Bootcamp trở thành <strong className="text-[#212122]">Peer Mentor</strong> — tạo vòng
-              lặp học tập bền vững trong cộng đồng. Khu chế biến xanh thử nghiệm sấy khô, lên men và đóng gói
-              rau, dược liệu quy mô nhỏ.
-            </p>
           </div>
         </section>
 
@@ -374,7 +554,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
         <section id="du-an-chien-dich" className="scroll-mt-24 rounded-2xl overflow-hidden text-white" style={patternStyle('olive', 380)}>
           <div className="p-6 sm:p-10 grid lg:grid-cols-12 gap-8 items-center bg-[#3E5021]/40">
             <div className="lg:col-span-5 space-y-4">
-              <SectionKicker no="06" light>
+              <SectionKicker no="08" light>
                 Chiến dịch truyền thông số
               </SectionKicker>
               <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight">“{CAMPAIGN_NAME}”</h2>
@@ -406,55 +586,10 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
           </div>
         </section>
 
-        {/* TIMELINE */}
-        <section className="space-y-6">
-          <div className="flex items-center gap-3">
-            <CalendarRange className="w-5 h-5 text-[#556B2F]" />
-            <h2 className="text-xl sm:text-2xl font-extrabold text-[#212122]">Timeline dự án</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-4">
-            {TIMELINE.map((t) => (
-              <div
-                key={t.phase}
-                className={`rounded-2xl p-6 border ${
-                  t.status === 'now' ? 'border-[#F4991A] bg-[#FFF6E8]' : 'border-[#556B2F]/15 bg-white'
-                }`}
-              >
-                <div className="flex items-center justify-between gap-3 mb-4">
-                  <div>
-                    <div className="text-base font-extrabold text-[#212122]">{t.phase}</div>
-                    <div className="text-xs font-semibold text-[#585A56]">{t.period}</div>
-                  </div>
-                  <span
-                    className={`text-[11px] font-bold px-2.5 py-1 rounded-full ${
-                      t.status === 'now' ? 'bg-[#F4991A] text-[#212122]' : 'bg-[#EFF5D2] text-[#556B2F]'
-                    }`}
-                  >
-                    {t.status === 'now' ? 'Đang diễn ra' : 'Đã hoàn thành'}
-                  </span>
-                </div>
-                <ol className="relative border-l-2 border-dashed border-[#C6D870] ml-1.5 space-y-3">
-                  {t.steps.map((s) => (
-                    <li key={s} className="pl-4 relative text-sm text-[#212122]">
-                      <span
-                        className={`absolute -left-[7px] top-1.5 w-3 h-3 rotate-45 ${
-                          t.status === 'now' ? 'bg-[#F4991A]' : 'bg-[#8FA31E]'
-                        }`}
-                        aria-hidden="true"
-                      />
-                      {s}
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* 07 — VISION & VALUES */}
         <section id="du-an-gia-tri" className="scroll-mt-24 space-y-6">
           <div className="space-y-2">
-            <SectionKicker no="07">Tầm nhìn & Giá trị cốt lõi</SectionKicker>
+            <SectionKicker no="09">Tầm nhìn & Giá trị cốt lõi</SectionKicker>
             <p className="text-lg sm:text-xl font-bold text-[#212122] leading-relaxed max-w-4xl">“{PROJECT_VISION}”</p>
           </div>
           <div className="grid sm:grid-cols-3 gap-4">

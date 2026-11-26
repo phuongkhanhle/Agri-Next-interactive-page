@@ -129,19 +129,14 @@ export const BOOTCAMP_MODULES = [
 
 export const FIELD_ZONES = [
   {
-    name: 'Cây bản địa & rau xanh',
-    area: '300 m²',
-    detail: 'Luân canh cải mèo, rau ngót rừng, rau dền, mồng tơi; trồng xen – gối vụ; tưới tự động.',
+    name: 'Vườn rau bản địa',
+    detail: 'Nơi gieo trồng và giữ giống các loại rau quen thuộc của bà con Cao Bằng như cải mèo, rau ngót rừng, rau dền.',
+    mascot: 'walk' as const,
   },
   {
-    name: 'Vườn dược liệu',
-    area: '300 m²',
-    detail: 'Đinh lăng, hà thủ ô, sa nhân, nghệ đen — luống có biển tên & mã QR; góc ngân hàng giống bản địa.',
-  },
-  {
-    name: 'Không gian học tập & mentoring',
-    area: '300 m²',
-    detail: 'Nhà chòi tre, gỗ địa phương cho workshop; Peer Mentors và chuyên gia hướng dẫn trực tiếp.',
+    name: 'Vườn thuốc (dược liệu)',
+    detail: 'Góc trồng các cây thuốc bản địa như đinh lăng, sa nhân, nghệ đen — gìn giữ tri thức dùng cây thuốc của đồng bào vùng cao.',
+    mascot: 'idea' as const,
   },
 ];
 
@@ -160,30 +155,51 @@ export const WEBINARS = [
   'Kinh tế tuần hoàn và Zero Waste',
 ];
 
-export const TIMELINE = [
-  {
-    phase: 'Giai đoạn 1',
-    period: '01/2026 – 10/2026',
-    status: 'done' as const,
-    steps: [
-      'Khởi động truyền thông, tuyển TNV',
-      'Tuyển & chốt trại viên Bootcamp',
-      'Khởi động – kết thúc Bootcamp 1',
-      'Đánh giá kết quả, tổng kết truyền thông',
-    ],
-  },
-  {
-    phase: 'Giai đoạn 2',
-    period: '10/2026 – 05/2027',
-    status: 'now' as const,
-    steps: [
-      'Xây dựng đội ngũ nòng cốt, tuyển CTV',
-      'Tuyển thành viên Bootcamp 2',
-      'Chuỗi module đào tạo trực tuyến',
-      'Thực địa tại Cao Bằng & báo cáo tổng kết',
-    ],
-  },
-];
+/* ---------------- Cuộc thi "Cao Bằng Xanh" ---------------- */
+
+export const CAO_BANG_XANH = {
+  name: 'Cao Bằng Xanh',
+  subtitle: 'Nâng tầm tri thức nông nghiệp bản địa',
+  theme: 'Đau đáu giữ rừng, bền bỉ giữ bản – Tôn vinh tri thức bản địa và bản sắc nông nghiệp truyền thống Cao Bằng',
+  hashtag: '#CaoBangXanh',
+  intro:
+    'Cuộc thi do Agri-Next Vietnam khởi xướng (với sự hỗ trợ của UNDP & Youth4Climate, trong khuôn khổ Call for Solution 2025) nhằm phát hiện, gìn giữ và lan tỏa các giá trị văn hóa nông nghiệp cổ truyền tại Cao Bằng.',
+  who: 'Bạn trẻ 18–29 tuổi trên toàn quốc · Cá nhân hoặc nhóm tối đa 3 người · Không cần có mặt tại Cao Bằng',
+  topics: [
+    { title: 'Di sản văn hóa nông nghiệp & nghề truyền thống', example: 'Lễ cúng cơm mới, nghề rèn, dệt thổ cẩm, bánh khảo, men lá…' },
+    { title: 'Sản phẩm bản địa & mô hình xanh bền vững', example: 'Thạch đen, lúa nếp hương, chè đắng, lợn đen thả rừng…' },
+    { title: 'Hạt nhân xanh – Giữ rừng, giữ bản', example: 'Già làng giữ rừng, người trẻ về quê khởi nghiệp xanh…' },
+    { title: 'Sáng kiến phát huy văn hóa nông nghiệp', example: 'Du lịch trải nghiệm gặt lúa, quảng bá nông sản trên MXH…' },
+  ],
+  formats: [
+    { title: 'Bài viết', detail: 'Dưới 1.000 từ, kèm ít nhất 3 ảnh thực tế có chú thích.' },
+    { title: 'Video dọc 9:16', detail: '3–5 phút, âm thanh rõ, khuyến khích có phụ đề.' },
+  ],
+  bonus: 'Cộng điểm ưu tiên cho tác phẩm bằng tiếng dân tộc (Tày, Nùng, H’Mông, Dao…) có phụ đề Tiếng Việt.',
+  dates: [
+    { date: '16/11/2026', label: 'Mở cổng nhận bài' },
+    { date: '16/12/2026', label: 'Hạn chót nộp bài (23:59)' },
+    { date: '27/12/2026', label: 'Công bố kết quả' },
+  ],
+  prizes: [
+    { title: 'Giải Nhất', value: '3.000.000đ' },
+    { title: 'Giải Nhì', value: '2.000.000đ' },
+    { title: 'Giải Ba', value: '1.000.000đ' },
+    { title: 'Đề bài được quan tâm nhất', value: 'Thành chủ đề Webinar toàn quốc' },
+  ],
+  allEntrants: 'Mọi bài dự thi hợp lệ đều nhận Giấy chứng nhận điện tử (e-certificate) từ Agri-Next Vietnam.',
+  howToSubmit:
+    'Gửi qua Email của Ban Tổ chức hoặc nhắn tin Fanpage Agri-Next Vietnam, tiêu đề: [CBX] Họ tên – Dạng 1/Dạng 2 – Tên bài dự thi.',
+  scoring: '70% điểm Ban Giám khảo + 30% điểm tiếp cận trên mạng xã hội',
+};
+
+export const UPCOMING_WEBINAR = {
+  title: 'Chọn Kinh tế hay chọn Bền vững trong Nông nghiệp?',
+  blurb:
+    'Webinar sắp tới của Agri-Next: cùng chuyên gia và các bạn trẻ tranh luận liệu thu nhập và bền vững có phải là hai lựa chọn đối lập — và làm sao để nông nghiệp vùng cao có cả hai.',
+  status: 'Sắp diễn ra',
+  cta: 'Theo dõi Fanpage để nhận lịch & link đăng ký',
+};
 
 export const CORE_VALUES = [
   { title: 'Bản địa', detail: 'Luôn lấy con người và tri thức địa phương làm gốc.', motif: 'diamond' as const },
@@ -217,6 +233,8 @@ export const TEAM = {
 
 export type ShowcaseSectionId =
   | 'du-an-gioi-thieu'
+  | 'du-an-cao-bang-xanh'
+  | 'du-an-nong-nghiep-cao-bang'
   | 'du-an-boi-canh'
   | 'du-an-giai-doan'
   | 'du-an-bootcamp'
@@ -226,7 +244,9 @@ export type ShowcaseSectionId =
 
 export const SHOWCASE_SECTION_LABELS: Record<ShowcaseSectionId, string> = {
   'du-an-gioi-thieu': 'Giới thiệu & Sứ mệnh',
+  'du-an-cao-bang-xanh': 'Cuộc thi Cao Bằng Xanh & Webinar',
   'du-an-boi-canh': 'Bối cảnh',
+  'du-an-nong-nghiep-cao-bang': 'Nông nghiệp Cao Bằng',
   'du-an-giai-doan': '3 hoạt động chính',
   'du-an-bootcamp': 'Bootcamp',
   'du-an-ruong-mau': 'Ruộng mẫu',
@@ -257,7 +277,7 @@ export const STICKER_QUESTIONS: StickerQuestion[] = [
     question: 'Ruộng mẫu Agri-Next tại Cao Bằng rộng khoảng bao nhiêu?',
     options: ['100 m²', '1.000 m²', '1 héc-ta', '5.000 m²'],
     answer: 1,
-    explain: 'Khu ruộng mẫu 1.000 m² chia thành các phân khu cây bản địa, dược liệu và không gian học tập.',
+    explain: 'Ruộng mẫu 1.000 m² gồm vườn rau bản địa và vườn thuốc để thanh niên thực hành.',
     section: 'du-an-ruong-mau',
   },
   {
@@ -323,10 +343,10 @@ export const STICKER_QUESTIONS: StickerQuestion[] = [
   },
   {
     id: 'q-herb',
-    question: 'Loại cây nào được trồng trong Vườn dược liệu của ruộng mẫu?',
+    question: 'Loại cây nào được trồng trong Vườn thuốc của ruộng mẫu?',
     options: ['Cà phê', 'Đinh lăng & sa nhân', 'Cao su', 'Thanh long'],
     answer: 1,
-    explain: 'Vườn dược liệu có đinh lăng, hà thủ ô, sa nhân, nghệ đen.',
+    explain: 'Vườn thuốc có các cây bản địa như đinh lăng, sa nhân, nghệ đen.',
     section: 'du-an-ruong-mau',
   },
   {
@@ -351,7 +371,7 @@ export const STICKER_QUESTIONS: StickerQuestion[] = [
     options: ['Khách hàng', 'Cố vấn đồng đẳng (Peer Mentor)', 'Nhà đầu tư', 'Giám khảo'],
     answer: 1,
     explain: 'Học viên trở thành Peer Mentor, hướng dẫn lứa tiếp theo.',
-    section: 'du-an-ruong-mau',
+    section: 'du-an-giai-doan',
   },
   {
     id: 'q-permaculture',
@@ -365,6 +385,62 @@ export const STICKER_QUESTIONS: StickerQuestion[] = [
     answer: 1,
     explain: 'Permaculture là thiết kế hệ sinh thái nông nghiệp bền vững, tự cân bằng.',
     section: 'du-an-bootcamp',
+  },
+  {
+    id: 'q-chestnut',
+    question: 'Hạt dẻ Trùng Khánh nổi tiếng nhờ sinh trưởng ven dòng sông nào?',
+    options: ['Sông Hồng', 'Sông Quây Sơn', 'Sông Đà', 'Sông Mã'],
+    answer: 1,
+    explain: 'Hạt dẻ Trùng Khánh lớn lên nhờ khí hậu mát lạnh và đất phù sa ven sông Quây Sơn.',
+    section: 'du-an-nong-nghiep-cao-bang',
+  },
+  {
+    id: 'q-vermicelli',
+    question: 'Miến dong Phia Đén được làm từ nguyên liệu nào?',
+    options: ['Gạo nếp', 'Củ dong riềng', 'Bột mì', 'Khoai lang'],
+    answer: 1,
+    explain: 'Củ dong riềng trồng trên 800 m ở Phia Đén cho sợi miến dai, không tẩy trắng.',
+    section: 'du-an-nong-nghiep-cao-bang',
+  },
+  {
+    id: 'q-grassjelly',
+    question: 'Đặc sản nào của Cao Bằng còn được gọi là “sương sáo”?',
+    options: ['Thạch đen Đông Khê', 'Lê Bảo Lạc', 'Hạt dẻ Trùng Khánh', 'Chè đắng'],
+    answer: 0,
+    explain: 'Thạch đen (sương sáo) Đông Khê cho hiệu quả kinh tế gấp 3–4 lần cây lúa.',
+    section: 'du-an-nong-nghiep-cao-bang',
+  },
+  {
+    id: 'q-vetiver',
+    question: 'Agri-Next gợi ý trồng cỏ gì theo đường đồng mức để chống xói mòn đất dốc ở Phia Đén?',
+    options: ['Cỏ voi', 'Cỏ vetiver', 'Cỏ lau', 'Cỏ mần trầu'],
+    answer: 1,
+    explain: 'Cỏ vetiver có bộ rễ sâu giữ đất, chống rửa trôi mùa mưa lũ.',
+    section: 'du-an-nong-nghiep-cao-bang',
+  },
+  {
+    id: 'q-cbx-age',
+    question: 'Cuộc thi “Cao Bằng Xanh” dành cho bạn trẻ trong độ tuổi nào?',
+    options: ['12–17 tuổi', '18–29 tuổi', '30–45 tuổi', 'Mọi lứa tuổi'],
+    answer: 1,
+    explain: 'Công dân Việt Nam 18–29 tuổi trên toàn quốc, cá nhân hoặc nhóm tối đa 3 người.',
+    section: 'du-an-cao-bang-xanh',
+  },
+  {
+    id: 'q-cbx-format',
+    question: 'Video dự thi “Cao Bằng Xanh” cần quay theo khung hình nào?',
+    options: ['Ngang 16:9', 'Vuông 1:1', 'Dọc 9:16', 'Tuỳ ý'],
+    answer: 2,
+    explain: 'Video dọc 9:16, dài 3–5 phút — phù hợp xem trên điện thoại.',
+    section: 'du-an-cao-bang-xanh',
+  },
+  {
+    id: 'q-cbx-hashtag',
+    question: 'Hashtag chính thức của cuộc thi “Cao Bằng Xanh” là gì?',
+    options: ['#GreenCaoBang', '#CaoBangXanh', '#AgriNext2026', '#MamReTre'],
+    answer: 1,
+    explain: '#CaoBangXanh — đừng quên gắn khi chia sẻ bài dự thi nhé!',
+    section: 'du-an-cao-bang-xanh',
   },
 ];
 
