@@ -179,7 +179,7 @@ export const CAO_BANG_XANH = {
   dates: [
     { date: '16/11/2026', label: 'Mở cổng nhận bài' },
     { date: '16/12/2026', label: 'Hạn chót nộp bài (23:59)' },
-    { date: '27/12/2026', label: 'Công bố kết quả' },
+    { date: '27/12/2026', label: 'Công bố kết quả tại Webinar' },
   ],
   prizes: [
     { title: 'Giải Nhất', value: '3.000.000đ' },
@@ -200,6 +200,7 @@ export const UPCOMING_WEBINAR = {
     'Webinar sắp tới của Agri-Next: cùng chuyên gia và các bạn trẻ tranh luận liệu thu nhập và bền vững có phải là hai lựa chọn đối lập — và làm sao để nông nghiệp vùng cao có cả hai.',
   status: 'Sắp diễn ra',
   date: '27/12/2026',
+  highlight: 'Công bố kết quả & vinh danh cuộc thi Cao Bằng Xanh',
   cta: 'Theo dõi Fanpage để nhận link tham gia',
 };
 

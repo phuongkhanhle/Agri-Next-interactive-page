@@ -286,6 +286,7 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
               Webinar · {UPCOMING_WEBINAR.date}
             </div>
             <div className="text-lg font-extrabold leading-snug">{UPCOMING_WEBINAR.title}</div>
+            <div className="text-xs font-semibold text-[#F4991A]">🏆 {UPCOMING_WEBINAR.highlight}</div>
           </button>
         </div>
       </section>

@@ -354,6 +354,10 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
                 </div>
                 <h3 className="text-2xl font-black leading-tight">{UPCOMING_WEBINAR.title}</h3>
                 <p className="text-sm text-white/80 leading-relaxed">{UPCOMING_WEBINAR.blurb}</p>
+                <div className="flex items-start gap-2.5 rounded-xl bg-[#F4991A]/15 border border-[#F4991A]/40 px-4 py-3">
+                  <Trophy className="w-4 h-4 text-[#F4991A] shrink-0 mt-0.5" />
+                  <div className="text-sm font-bold text-white leading-snug">{UPCOMING_WEBINAR.highlight}</div>
+                </div>
                 <div className="grid grid-cols-2 gap-2">
                   <div className="rounded-xl bg-[#556B2F] p-3 text-center">
                     <div className="text-lg font-black">Kinh tế</div>
