@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import {
   ArrowRight,
+  BookOpen,
   Compass,
+  Gift,
   Download,
   MonitorPlay,
   QrCode,
@@ -10,13 +12,17 @@ import {
   Sprout,
 } from 'lucide-react';
 import { AGRI_NEXT_PILLARS, CAO_BANG_SPECIALTIES } from '../data/agriNextContent';
-import { BrocadeStrip, GrainMascot, LeafMascot, Youth4ClimateLogo } from './BrandAssets';
+import { BrocadeStrip, GrainMascot, LeafMascot, Youth4ClimateLogo, patternStyle } from './BrandAssets';
+import type { GiftStatus } from '../types';
 import { LiveQrCode } from './LiveQrCode';
 import type { QrTarget } from './QrPlayModal';
 
 interface LandingSectionProps {
   onStartGames: (initialGame?: 'farm_sim' | 'cao_bang_quiz' | 'market_basket') => void;
   onOpenQrModal: (target?: QrTarget) => void;
+  onOpenProject: () => void;
+  onOpenStickerHunt: () => void;
+  giftStatus: GiftStatus | null;
   onOpenBoothMode: () => void;
   onExploreCrop: (cropId: string) => void;
   communityStats: {
@@ -29,6 +35,9 @@ interface LandingSectionProps {
 export const LandingSection: React.FC<LandingSectionProps> = ({
   onStartGames,
   onOpenQrModal,
+  onOpenProject,
+  onOpenStickerHunt,
+  giftStatus,
   onOpenBoothMode,
   onExploreCrop,
   communityStats,
@@ -95,32 +104,40 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
                   </h1>
                   <p className="text-sm sm:text-base lg:text-lg text-[#EFF5D2] leading-relaxed max-w-2xl font-medium">
                     Sáng kiến do thanh niên dẫn dắt kết hợp tri thức bản địa và nông nghiệp tái sinh
-                    tại Cao Bằng. Mời bạn đọc câu chuyện dự án bên dưới rồi{' '}
-                    <strong className="text-white">quét mã QR bằng điện thoại</strong> để chơi 3 trò
-                    chơi hiểu hơn về nông nghiệp Cao Bằng và nhận Huy hiệu check-in chia sẻ mạng xã
-                    hội!
+                    tại Cao Bằng. Đọc câu chuyện dự án, trả lời 5 câu đố và{' '}
+                    <strong className="text-white">nhận 1 bộ sticker Agri-Next</strong> ngay tại booth
+                    — chỉ có {giftStatus?.total ?? 30} suất thôi!
                   </p>
                   <div className="flex flex-wrap items-center gap-3 pt-1">
-                    <a
-                      href="#tram-quet-qr"
+                    <button
+                      type="button"
+                      onClick={onOpenStickerHunt}
                       className="min-h-[48px] inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-[#F4991A] hover:bg-[#D9810D] text-[#212122] font-bold text-sm sm:text-base transition-colors cursor-pointer whitespace-nowrap shrink-0"
                     >
-                      <QrCode className="w-4 h-4 shrink-0" />
-                      <span>Quét mã QR chơi ngay</span>
-                    </a>
-                    <a
-                      href="#cau-chuyen-du-an"
-                      className="min-h-[48px] inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#EFF5D2] hover:bg-white text-[#3E5021] font-bold text-sm sm:text-base transition-colors whitespace-nowrap shrink-0"
+                      <Gift className="w-4 h-4 shrink-0" />
+                      <span>
+                        Săn Sticker
+                        {giftStatus && (
+                          <span className="font-mono-num ml-1.5">
+                            · còn {giftStatus.remaining}/{giftStatus.total}
+                          </span>
+                        )}
+                      </span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={onOpenProject}
+                      className="min-h-[48px] inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#EFF5D2] hover:bg-white text-[#3E5021] font-bold text-sm sm:text-base transition-colors whitespace-nowrap shrink-0 cursor-pointer"
                     >
-                      <span>Đọc về Agri-Next</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
+                      <BookOpen className="w-4 h-4" />
+                      <span>Đọc về dự án</span>
+                    </button>
                     <button
                       type="button"
                       onClick={() => onStartGames('farm_sim')}
                       className="min-h-[48px] inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-[#EFF5D2]/15 hover:bg-[#EFF5D2]/25 text-white border border-[#EFF5D2]/35 font-semibold text-sm transition-colors cursor-pointer whitespace-nowrap shrink-0"
                     >
-                      <span>Chơi trên máy này</span>
+                      <span>Mini-game</span>
                     </button>
                   </div>
                 </div>
@@ -128,22 +145,21 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
                 {/* ALWAYS-VISIBLE SCANNABLE QR CARD RIGHT IN THE HERO (For Booth Screen) */}
                 <div className="lg:col-span-5 flex lg:justify-end">
                   <div className="w-full max-w-sm rounded-2xl bg-[#EFF5D2] text-[#212122] p-5 border border-[#C6D870] shadow-md flex items-center gap-4">
-                    <LiveQrCode target="games" sizeClass="w-32 h-32 sm:w-36 sm:h-36" pixelWidth={400} />
+                    <LiveQrCode target="sticker" sizeClass="w-32 h-32 sm:w-36 sm:h-36" pixelWidth={400} />
                     <div className="space-y-2 min-w-0">
                       <div className="inline-flex items-center gap-1.5 text-[11px] font-extrabold text-[#556B2F]">
                         <Smartphone className="w-3.5 h-3.5 shrink-0" />
                         <span>QUÉT BẰNG ĐIỆN THOẠI</span>
                       </div>
                       <div className="text-sm sm:text-base font-black text-[#212122] leading-snug">
-                        Hiểu nông nghiệp Cao Bằng · Nhận Huy hiệu Check-in
+                        Săn Sticker Agri-Next trên điện thoại
                       </div>
                       <p className="text-xs text-[#585A56] leading-relaxed">
-                        Quét trực tiếp tại Booth, mở khóa huy hiệu đã biết về Agri-Next và chia sẻ
-                        lên MXH.
+                        Đọc dự án, trả lời đúng 4/5 câu đố và nhận mã đổi sticker tại booth.
                       </p>
                       <button
                         type="button"
-                        onClick={() => onOpenQrModal('games')}
+                        onClick={() => onOpenQrModal('sticker')}
                         className="text-xs font-bold text-[#556B2F] hover:underline cursor-pointer"
                       >
                         Phóng to / Tải Poster QR →
@@ -208,6 +224,44 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
         </div>
       </section>
 
+      {/* STICKER HUNT BANNER — 30 limited booth gifts */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="relative rounded-2xl overflow-hidden" style={patternStyle('amber', 320)}>
+          <div className="bg-[#F4991A]/80 grid md:grid-cols-12 gap-6 items-center p-6 sm:p-8">
+            <div className="md:col-span-2 flex justify-center gap-1">
+              <LeafMascot mood="cheer" className="w-20 h-20 sm:w-24 sm:h-24" />
+              <GrainMascot mood="wave" className="w-16 h-16 sm:w-20 sm:h-20 self-end" />
+            </div>
+            <div className="md:col-span-7 space-y-2 text-[#212122]">
+              <div className="text-xs font-extrabold uppercase tracking-wider">Quà nhỏ tại booth</div>
+              <h2 className="text-2xl sm:text-3xl font-black leading-tight">
+                Săn Sticker Bé Mầm & Bé Hạt
+              </h2>
+              <p className="text-sm sm:text-base font-medium">
+                Đọc về dự án → trả lời đúng 4/5 câu đố → đưa mã cho staff. Mỗi người 1 bộ, chỉ{' '}
+                {giftStatus?.total ?? 30} suất!
+              </p>
+            </div>
+            <div className="md:col-span-3 flex flex-col items-stretch md:items-end gap-2">
+              <div className="rounded-xl bg-white/90 px-4 py-2 text-center md:text-right">
+                <div className="text-[11px] font-bold uppercase text-[#556B2F]">Còn lại</div>
+                <div className="font-mono-num text-3xl font-bold text-[#212122] leading-none">
+                  {giftStatus ? giftStatus.remaining : '—'}
+                  <span className="text-base text-[#585A56]">/{giftStatus?.total ?? 30}</span>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={onOpenStickerHunt}
+                className="min-h-[48px] inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#212122] hover:bg-[#3E5021] text-white font-bold text-sm transition-colors cursor-pointer"
+              >
+                Chơi ngay <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CHAPTER 01: DEEP OLIVE HERITAGE PANEL — Bối cảnh & Sứ mệnh Agri-Next */}
       <section id="cau-chuyen-du-an" className="max-w-6xl mx-auto px-4 sm:px-6 scroll-mt-24">
         <div className="rounded-2xl overflow-hidden bg-[#556B2F] text-white border border-[#3E5021]">
@@ -250,6 +304,13 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
                   className="px-5 py-2.5 rounded-lg bg-[#EFF5D2] hover:bg-white text-[#556B2F] font-bold text-sm transition-colors cursor-pointer whitespace-nowrap shrink-0"
                 >
                   Thử làm nông dân tái sinh
+                </button>
+                <button
+                  type="button"
+                  onClick={onOpenProject}
+                  className="px-5 py-2.5 rounded-lg bg-[#F4991A] hover:bg-[#D9810D] text-[#212122] font-bold text-sm transition-colors cursor-pointer whitespace-nowrap shrink-0"
+                >
+                  Xem toàn bộ dự án →
                 </button>
               </div>
             </div>

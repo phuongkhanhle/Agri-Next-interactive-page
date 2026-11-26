@@ -48,7 +48,7 @@ const SLIDE_TITLES = [
   '04. Bảng xếp hạng trực tiếp',
 ];
 
-const BOOTH_QR_OPTIONS: QrTarget[] = ['games', 'farm_sim', 'cao_bang_quiz', 'market_basket'];
+const BOOTH_QR_OPTIONS: QrTarget[] = ['sticker', 'project', 'games', 'farm_sim', 'cao_bang_quiz', 'market_basket'];
 const SLIDE_DURATION_MS = 12000;
 
 export const BoothPresentationMode: React.FC<BoothPresentationModeProps> = ({
@@ -58,11 +58,12 @@ export const BoothPresentationMode: React.FC<BoothPresentationModeProps> = ({
 }) => {
   const [slideIdx, setSlideIdx] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [qrTarget, setQrTarget] = useState<QrTarget>('games');
+  const [qrTarget, setQrTarget] = useState<QrTarget>('sticker');
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showUrlEdit, setShowUrlEdit] = useState(false);
   const [baseUrlInput, setBaseUrlInput] = useState(() => getSavedQrBaseUrl());
   const [liveEntries, setLiveEntries] = useState<LeaderboardEntry[]>([]);
+  const [gifts, setGifts] = useState<{ remaining: number; total: number } | null>(null);
   const [liveTotals, setLiveTotals] = useState({
     totalPlayers: communityStats.totalPlayers,
     totalSessions: communityStats.totalSessions,
@@ -83,6 +84,10 @@ export const BoothPresentationMode: React.FC<BoothPresentationModeProps> = ({
             totalSessions: data.totalSessions ?? communityStats.totalSessions,
           });
         })
+        .catch(() => {});
+      fetch('/api/gifts/status')
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => active && data && setGifts({ remaining: data.remaining, total: data.total }))
         .catch(() => {});
     };
 
@@ -554,15 +559,28 @@ export const BoothPresentationMode: React.FC<BoothPresentationModeProps> = ({
             </div>
 
             {/* Simple 3-step callout */}
+            {gifts && (
+              <div className="w-full max-w-xs rounded-xl bg-[#F4991A] text-[#212122] px-4 py-3 flex items-center justify-between gap-3">
+                <div className="text-left">
+                  <div className="text-[11px] font-extrabold uppercase tracking-wider">Sticker còn lại</div>
+                  <div className="text-xs font-semibold">Đúng 4/5 câu đố là có quà!</div>
+                </div>
+                <div className="font-mono-num text-3xl font-bold leading-none">
+                  {gifts.remaining}
+                  <span className="text-base opacity-70">/{gifts.total}</span>
+                </div>
+              </div>
+            )}
+
             <div className="w-full max-w-xs rounded-xl bg-[#3E5021]/75 border border-white/15 p-4 text-left space-y-1.5 text-xs text-[#EFF5D2]">
               <div>
                 <strong className="text-[#F4991A]">1.</strong> Mở Camera điện thoại hoặc Zalo quét mã
               </div>
               <div>
-                <strong className="text-[#F4991A]">2.</strong> Chơi 2 phút để hiểu nông nghiệp Cao Bằng
+                <strong className="text-[#F4991A]">2.</strong> Đọc về dự án & trả lời 5 câu đố Săn Sticker
               </div>
               <div>
-                <strong className="text-[#F4991A]">3.</strong> Nhận Huy hiệu check-in Agri-Next & chia sẻ MXH
+                <strong className="text-[#F4991A]">3.</strong> Đưa mã quà cho staff để nhận sticker
               </div>
             </div>
 

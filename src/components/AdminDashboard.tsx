@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { GiftAdminPanel } from './GiftAdminPanel';
 import {
   Bar,
   BarChart,
@@ -56,7 +57,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
   const [loading, setLoading] = useState(false);
   const [fetchError, setFetchError] = useState<string | null>(null);
 
-  const [activeTab, setActiveTab] = useState<'overview' | 'players' | 'insights'>('overview');
+  const [activeTab, setActiveTab] = useState<'gifts' | 'overview' | 'players' | 'insights'>('gifts');
   const [searchQuery, setSearchQuery] = useState('');
   const [regionFilter, setRegionFilter] = useState('all');
 
@@ -387,6 +388,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
       {/* Sub-navigation Tabs */}
       <div className="flex flex-wrap gap-1.5 p-1 rounded-xl bg-[#556B2F]/10 w-fit">
         {[
+          { id: 'gifts', label: 'Phát quà Sticker' },
           { id: 'overview', label: 'Tổng quan & Biểu đồ' },
           { id: 'players', label: `Tiến độ Người chơi (${data?.players.length ?? 0})` },
           { id: 'insights', label: `Hộp thư Insights (${data?.insights.length ?? 0})` },
@@ -415,7 +417,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         </div>
       )}
 
-      {loading && !data ? (
+      {activeTab === 'gifts' && adminToken && <GiftAdminPanel token={adminToken} />}
+
+      {activeTab === 'gifts' ? null : loading && !data ? (
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="h-28 rounded-xl bg-[#EFF5D2]/60 animate-pulse" />

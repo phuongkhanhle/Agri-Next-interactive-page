@@ -11,6 +11,8 @@ import type {
   CommunityInsightRecord,
   GameSessionRecord,
   GameType,
+  GiftClaimRecord,
+  GiftStatus,
   InterestFocus,
   LeaderboardEntry,
   PlayerProfile,
@@ -18,6 +20,11 @@ import type {
   RegionOption,
   SustainabilityPersona,
 } from './src/types.ts';
+import {
+  STICKER_PASS_SCORE,
+  STICKER_QUESTIONS,
+  STICKER_QUIZ_LENGTH,
+} from './src/data/projectShowcase.ts';
 
 dotenv.config();
 
@@ -33,8 +40,12 @@ interface DatabaseSchema {
   sessions: GameSessionRecord[];
   events: BehaviorEventRecord[];
   insights: CommunityInsightRecord[];
+  gifts: GiftClaimRecord[];
+  giftTotal?: number;
   adminCredentialHash?: string | null;
 }
+
+const DEFAULT_GIFT_TOTAL = Math.max(0, Math.min(1000, Number(process.env.GIFT_TOTAL) || 30));
 
 const ADMIN_TOKEN_TTL_MS = 8 * 60 * 60 * 1000;
 const adminSessions = new Map<string, number>();
@@ -780,6 +791,7 @@ function createInitialSeedData(): DatabaseSchema {
     sessions: seedSessions,
     events: seedEvents,
     insights: seedInsights,
+    gifts: [],
   };
 }
 
@@ -805,6 +817,8 @@ function loadDb(): DatabaseSchema {
       sessions: parsed.sessions,
       events: Array.isArray(parsed.events) ? parsed.events : [],
       insights: Array.isArray(parsed.insights) ? parsed.insights : [],
+      gifts: Array.isArray(parsed.gifts) ? parsed.gifts : [],
+      giftTotal: typeof parsed.giftTotal === 'number' ? parsed.giftTotal : undefined,
       adminCredentialHash:
         typeof parsed.adminCredentialHash === 'string' ? parsed.adminCredentialHash : null,
     };
@@ -825,6 +839,29 @@ function saveDb() {
   } catch (err) {
     console.error('Failed to persist DB:', err);
   }
+}
+
+function getGiftTotal(): number {
+  return typeof db.giftTotal === 'number' ? db.giftTotal : DEFAULT_GIFT_TOTAL;
+}
+
+function buildGiftStatus(): GiftStatus {
+  const total = getGiftTotal();
+  const claimed = db.gifts.length;
+  return {
+    total,
+    claimed,
+    redeemed: db.gifts.filter((g) => g.redeemedAt).length,
+    remaining: Math.max(0, total - claimed),
+  };
+}
+
+const GIFT_CODE_ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+function generateGiftCode(slot: number): string {
+  let suffix = '';
+  const bytes = crypto.randomBytes(3);
+  for (const b of bytes) suffix += GIFT_CODE_ALPHABET[b % GIFT_CODE_ALPHABET.length];
+  return `AN-${String(slot).padStart(2, '0')}-${suffix}`;
 }
 
 function buildPublicInsightsSummary(): PublicInsightsSummary {
@@ -1528,6 +1565,127 @@ async function startServer() {
     const token = extractBearerToken(req);
     if (token) adminSessions.delete(token);
     res.json({ ok: true });
+  });
+
+  // ---------------------------------------------------------------------------
+  // "Săn Sticker" — limited booth gifts (default 30). Answers are graded here so
+  // the slot counter cannot be drained by simply calling the API.
+  // ---------------------------------------------------------------------------
+  app.get('/api/gifts/status', (_req, res) => {
+    res.json(buildGiftStatus());
+  });
+
+  app.get('/api/gifts/mine/:deviceId', (req, res) => {
+    const deviceId = sanitizeText(req.params.deviceId, 64);
+    const claim = db.gifts.find((g) => g.deviceId === deviceId) ?? null;
+    res.json({ claim, status: buildGiftStatus() });
+  });
+
+  app.post('/api/gifts/claim', (req, res) => {
+    const body = req.body ?? {};
+    const deviceId = sanitizeText(body.deviceId, 64);
+    const name = sanitizeText(body.name, 40);
+    const playerId = sanitizeText(body.playerId, 64) || null;
+    if (!deviceId || deviceId.length < 8) {
+      res.status(400).json({ error: 'Thiếu mã thiết bị. Vui lòng tải lại trang.' });
+      return;
+    }
+    if (name.length < 2) {
+      res.status(400).json({ error: 'Bạn nhập tên (ít nhất 2 ký tự) để staff gọi khi phát quà nhé!' });
+      return;
+    }
+
+    const existing = db.gifts.find((g) => g.deviceId === deviceId);
+    if (existing) {
+      res.json({ claim: existing, status: buildGiftStatus(), alreadyClaimed: true });
+      return;
+    }
+
+    const rawAnswers: Array<{ id?: unknown; choice?: unknown }> = Array.isArray(body.answers)
+      ? body.answers.slice(0, STICKER_QUIZ_LENGTH)
+      : [];
+    const seen = new Set<string>();
+    let correct = 0;
+    for (const a of rawAnswers) {
+      const q = STICKER_QUESTIONS.find((x) => x.id === a.id);
+      if (!q || seen.has(q.id)) continue;
+      seen.add(q.id);
+      if (Number(a.choice) === q.answer) correct += 1;
+    }
+    if (seen.size < STICKER_QUIZ_LENGTH || correct < STICKER_PASS_SCORE) {
+      res.status(422).json({
+        error: `Cần trả lời đúng ít nhất ${STICKER_PASS_SCORE}/${STICKER_QUIZ_LENGTH} câu để nhận quà.`,
+        correct,
+      });
+      return;
+    }
+
+    const status = buildGiftStatus();
+    if (status.remaining <= 0) {
+      res.status(410).json({ error: 'Đã hết 30 suất sticker rồi 😢', soldOut: true, status });
+      return;
+    }
+
+    const usedSlots = new Set(db.gifts.map((g) => g.slot));
+    let slot = 1;
+    while (usedSlots.has(slot)) slot += 1;
+    const claim: GiftClaimRecord = {
+      id: `gf-${crypto.randomBytes(5).toString('hex')}`,
+      slot,
+      code: generateGiftCode(slot),
+      name,
+      deviceId,
+      playerId,
+      score: correct,
+      outOf: STICKER_QUIZ_LENGTH,
+      createdAt: new Date().toISOString(),
+      redeemedAt: null,
+    };
+    db.gifts.push(claim);
+    saveDb();
+    res.status(201).json({ claim, status: buildGiftStatus() });
+  });
+
+  // Admin: list gift claims
+  app.get('/api/admin/gifts', requireAdminAuth, (_req, res) => {
+    const gifts = [...db.gifts].sort((a, b) => a.slot - b.slot);
+    res.json({ gifts, status: buildGiftStatus() });
+  });
+
+  // Admin: mark a gift as handed out (or undo)
+  app.patch('/api/admin/gifts/:id', requireAdminAuth, (req, res) => {
+    const gift = db.gifts.find((g) => g.id === req.params.id);
+    if (!gift) {
+      res.status(404).json({ error: 'Không tìm thấy mã quà.' });
+      return;
+    }
+    gift.redeemedAt = req.body?.redeemed ? new Date().toISOString() : null;
+    saveDb();
+    res.json({ gift, status: buildGiftStatus() });
+  });
+
+  // Admin: cancel a claim (frees the slot)
+  app.delete('/api/admin/gifts/:id', requireAdminAuth, (req, res) => {
+    const before = db.gifts.length;
+    db.gifts = db.gifts.filter((g) => g.id !== req.params.id);
+    if (db.gifts.length === before) {
+      res.status(404).json({ error: 'Không tìm thấy mã quà.' });
+      return;
+    }
+    saveDb();
+    res.json({ ok: true, status: buildGiftStatus() });
+  });
+
+  // Admin: change the number of gifts available
+  app.post('/api/admin/gifts/config', requireAdminAuth, (req, res) => {
+    const total = Math.round(Number(req.body?.total));
+    if (!Number.isFinite(total) || total < db.gifts.length || total > 1000) {
+      res.status(400).json({ error: `Số suất quà phải từ ${db.gifts.length} đến 1000.` });
+      return;
+    }
+    db.giftTotal = total;
+    saveDb();
+    res.json({ status: buildGiftStatus() });
   });
 
   // Admin dashboard analytics (protected — Admin only)

@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Award, Compass, Gamepad2, Leaf, Menu, Trophy, X } from 'lucide-react';
-import type { GameType, PlayerProfile, RegionOption } from './types';
+import { BookOpen, Compass, Gamepad2, Gift, Leaf, Menu, Trophy, X } from 'lucide-react';
+import type { GameType, GiftStatus, PlayerProfile, RegionOption } from './types';
 import {
   AgriNextLogo,
   BrocadeStrip,
+  SOCIAL_LINKS,
   SocialDiamondIcon,
   Youth4ClimateLogo,
 } from './components/BrandAssets';
@@ -14,16 +15,21 @@ import { CommunityInsightsSection } from './components/CommunityInsightsSection'
 import { AdminDashboard } from './components/AdminDashboard';
 import { QrPlayModal, type QrTarget } from './components/QrPlayModal';
 import { BoothPresentationMode } from './components/BoothPresentationMode';
+import { ProjectShowcase } from './components/ProjectShowcase';
+import { StickerHunt } from './components/StickerHunt';
+import type { ShowcaseSectionId } from './data/projectShowcase';
 
-type ViewKey = 'landing' | 'games' | 'leaderboard' | 'insights' | 'admin';
+type ViewKey = 'landing' | 'project' | 'sticker' | 'games' | 'leaderboard' | 'insights' | 'admin';
 
-const VALID_VIEWS: ViewKey[] = ['landing', 'games', 'leaderboard', 'insights', 'admin'];
+const VALID_VIEWS: ViewKey[] = ['landing', 'project', 'sticker', 'games', 'leaderboard', 'insights', 'admin'];
 const VALID_GAMES: GameType[] = ['farm_sim', 'cao_bang_quiz', 'market_basket'];
 
 const NAV_ITEMS: Array<{ id: ViewKey; label: string }> = [
-  { id: 'landing', label: 'Giới thiệu' },
-  { id: 'games', label: 'Trò chơi & Khảo sát' },
-  { id: 'leaderboard', label: 'Bảng xếp hạng' },
+  { id: 'landing', label: 'Trang chủ' },
+  { id: 'project', label: 'Dự án' },
+  { id: 'sticker', label: 'Săn Sticker' },
+  { id: 'games', label: 'Mini-game' },
+  { id: 'leaderboard', label: 'Xếp hạng' },
   { id: 'insights', label: 'Góc nhìn' },
 ];
 
@@ -32,10 +38,11 @@ const MOBILE_BOTTOM_TABS: Array<{
   label: string;
   icon: React.FC<{ className?: string }>;
 }> = [
-  { id: 'landing', label: 'Giới thiệu', icon: Leaf },
-  { id: 'games', label: 'Trò chơi', icon: Gamepad2 },
+  { id: 'landing', label: 'Trang chủ', icon: Leaf },
+  { id: 'project', label: 'Dự án', icon: BookOpen },
+  { id: 'sticker', label: 'Săn quà', icon: Gift },
+  { id: 'games', label: 'Mini-game', icon: Gamepad2 },
   { id: 'leaderboard', label: 'Xếp hạng', icon: Trophy },
-  { id: 'insights', label: 'Góc nhìn', icon: Compass },
 ];
 
 function getInitialRouteFromUrl(): {
@@ -62,6 +69,20 @@ function getInitialRouteFromUrl(): {
   return { view, game, autoplay };
 }
 
+function getOrCreateDeviceId(): string {
+  const key = 'agrinext_device_id';
+  try {
+    let id = localStorage.getItem(key);
+    if (!id) {
+      id = `dev-${Math.random().toString(36).slice(2, 10)}${Date.now().toString(36)}`;
+      localStorage.setItem(key, id);
+    }
+    return id;
+  } catch {
+    return `dev-${Math.random().toString(36).slice(2, 12)}${Date.now().toString(36)}`;
+  }
+}
+
 function getOrCreateSessionId(): string {
   const key = 'agrinext_session_id';
   let sid = sessionStorage.getItem(key);
@@ -86,6 +107,9 @@ export default function App() {
   });
 
   const [sessionId] = useState<string>(() => getOrCreateSessionId());
+  const [deviceId] = useState<string>(() => getOrCreateDeviceId());
+  const [giftStatus, setGiftStatus] = useState<GiftStatus | null>(null);
+  const [pendingAnchor, setPendingAnchor] = useState<string | null>(null);
   const [currentPlayer, setCurrentPlayer] = useState<PlayerProfile | null>(null);
   const [leaderboardTick, setLeaderboardTick] = useState(0);
   const [communityStats, setCommunityStats] = useState({
@@ -126,6 +150,18 @@ export default function App() {
     refreshPublicStats();
   }, [refreshPublicStats]);
 
+  // Live counter of remaining booth stickers (refreshes every 15s)
+  useEffect(() => {
+    const load = () =>
+      fetch('/api/gifts/status')
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => data && setGiftStatus(data))
+        .catch(() => {});
+    load();
+    const t = window.setInterval(load, 15000);
+    return () => window.clearInterval(t);
+  }, []);
+
   const trackEvent = useCallback(
     (
       eventType:
@@ -153,10 +189,21 @@ export default function App() {
 
   useEffect(() => {
     trackEvent('page_view', activeView);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (!pendingAnchor) window.scrollTo({ top: 0, behavior: 'smooth' });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeView, trackEvent]);
 
-  const navigateTo = (view: ViewKey) => {
+  useEffect(() => {
+    if (!pendingAnchor) return;
+    const t = window.setTimeout(() => {
+      document.getElementById(pendingAnchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setPendingAnchor(null);
+    }, 80);
+    return () => window.clearTimeout(t);
+  }, [pendingAnchor, activeView]);
+
+  const navigateTo = (view: ViewKey, anchor?: string) => {
+    if (anchor) setPendingAnchor(anchor);
     setActiveView(view);
     setMobileMenuOpen(false);
     try {
@@ -235,7 +282,7 @@ export default function App() {
     }
   };
 
-  const badgeCount = currentPlayer?.badges?.length ?? 0;
+  const giftsLeft = giftStatus?.remaining ?? null;
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F9FBF1] text-[#212122] pb-16 md:pb-0">
@@ -255,7 +302,7 @@ export default function App() {
           {/* Zone 2: 5 clean single-line text navigation links */}
           <nav
             aria-label="Điều hướng chính"
-            className="hidden md:flex items-center gap-7 text-sm font-semibold"
+            className="hidden md:flex items-center gap-5 lg:gap-7 text-sm font-semibold"
           >
             {NAV_ITEMS.map((item) => {
               const active = activeView === item.id;
@@ -280,11 +327,18 @@ export default function App() {
           <div className="flex items-center gap-3 shrink-0">
             <button
               type="button"
-              onClick={() => handleStartGames('farm_sim')}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#F4991A] hover:bg-[#D9810D] text-[#212122] text-xs sm:text-sm font-bold transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              onClick={() => navigateTo('sticker')}
+              className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-lg bg-[#F4991A] hover:bg-[#D9810D] text-[#212122] text-xs sm:text-sm font-bold transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
-              <Award className="w-4 h-4 shrink-0" />
-              <span>{badgeCount > 0 ? `Huy hiệu (${badgeCount}/4)` : 'Nhận Huy hiệu'}</span>
+              <Gift className="w-4 h-4 shrink-0" />
+              <span>
+                Săn Sticker
+                {giftsLeft !== null && (
+                  <span className="ml-1.5 font-mono-num">
+                    · {giftsLeft}/{giftStatus?.total}
+                  </span>
+                )}
+              </span>
             </button>
 
             <button
@@ -328,10 +382,28 @@ export default function App() {
         {activeView === 'landing' && (
           <LandingSection
             onStartGames={handleStartGames}
+            onOpenProject={() => navigateTo('project')}
+            onOpenStickerHunt={() => navigateTo('sticker')}
+            giftStatus={giftStatus}
             onOpenQrModal={openQrModal}
             onOpenBoothMode={() => setBoothModeOpen(true)}
             onExploreCrop={(cropId) => trackEvent('crop_explored', cropId)}
             communityStats={communityStats}
+          />
+        )}
+
+        {activeView === 'project' && (
+          <ProjectShowcase giftStatus={giftStatus} onStartStickerHunt={() => navigateTo('sticker')} />
+        )}
+
+        {activeView === 'sticker' && (
+          <StickerHunt
+            deviceId={deviceId}
+            playerId={currentPlayer?.id ?? null}
+            giftStatus={giftStatus}
+            onGiftStatus={setGiftStatus}
+            onOpenProject={(section?: ShowcaseSectionId) => navigateTo('project', section)}
+            onPlayMoreGames={() => handleStartGames('farm_sim')}
           />
         )}
 
@@ -393,7 +465,7 @@ export default function App() {
 
             <div className="md:col-span-7 flex flex-col sm:flex-row sm:items-center justify-end gap-6">
               <a
-                href="https://www.facebook.com"
+                href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => trackEvent('social_clicked', 'facebook')}
@@ -403,7 +475,7 @@ export default function App() {
                 <span>Agri-Next-Vietnam</span>
               </a>
               <a
-                href="https://www.instagram.com"
+                href={SOCIAL_LINKS.instagram}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => trackEvent('social_clicked', 'instagram')}
@@ -417,7 +489,7 @@ export default function App() {
                 <span>agri_next.vietnam</span>
               </a>
               <a
-                href="https://www.linkedin.com"
+                href={SOCIAL_LINKS.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => trackEvent('social_clicked', 'linkedin')}
@@ -434,10 +506,17 @@ export default function App() {
             <div className="flex items-center gap-4">
               <button
                 type="button"
+                onClick={() => navigateTo('project')}
+                className="hover:text-white cursor-pointer"
+              >
+                Về dự án
+              </button>
+              <button
+                type="button"
                 onClick={() => navigateTo('games')}
                 className="hover:text-white cursor-pointer"
               >
-                Trò chơi & Huy hiệu
+                Mini-game & Huy hiệu
               </button>
               <button
                 type="button"
@@ -466,7 +545,7 @@ export default function App() {
         aria-label="Điều hướng nhanh trên điện thoại"
         className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-[#F9FBF1]/95 backdrop-blur-md border-t border-[#556B2F]/18 pb-safe"
       >
-        <div className="grid grid-cols-4 h-14">
+        <div className="grid grid-cols-5 h-14">
           {MOBILE_BOTTOM_TABS.map((tab) => {
             const Icon = tab.icon;
             const active = activeView === tab.id;

@@ -143,3 +143,23 @@ export interface AdminDashboardData {
   players: PlayerProfile[];
   insights: CommunityInsightRecord[];
 }
+
+export interface GiftClaimRecord {
+  id: string;
+  slot: number; // 1..total
+  code: string; // shown to booth staff, e.g. AN-07-K4P
+  name: string;
+  deviceId: string;
+  playerId: string | null;
+  score: number;
+  outOf: number;
+  createdAt: string;
+  redeemedAt: string | null;
+}
+
+export interface GiftStatus {
+  total: number;
+  claimed: number;
+  redeemed: number;
+  remaining: number;
+}

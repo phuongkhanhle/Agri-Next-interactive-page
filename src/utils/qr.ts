@@ -1,6 +1,13 @@
 import QRCode from 'qrcode';
 
-export type QrTarget = 'games' | 'farm_sim' | 'cao_bang_quiz' | 'market_basket' | 'landing';
+export type QrTarget =
+  | 'sticker'
+  | 'project'
+  | 'games'
+  | 'farm_sim'
+  | 'cao_bang_quiz'
+  | 'market_basket'
+  | 'landing';
 
 export interface QrTargetConfig {
   id: QrTarget;
@@ -13,6 +20,24 @@ export interface QrTargetConfig {
 }
 
 export const QR_TARGETS: QrTargetConfig[] = [
+  {
+    id: 'sticker',
+    label: 'Săn Sticker',
+    shortLabel: 'Săn Sticker',
+    posterTitle: 'SĂN STICKER AGRI-NEXT',
+    posterSubtitle: 'Đọc dự án · Trả lời đúng 4/5 câu đố · Nhận sticker Bé Mầm & Bé Hạt tại booth',
+    boothHint: 'Vào thẳng trò chơi Săn Sticker (số suất quà có hạn)',
+    query: '?view=sticker',
+  },
+  {
+    id: 'project',
+    label: 'Câu chuyện Dự án',
+    shortLabel: 'Dự án',
+    posterTitle: 'CÂU CHUYỆN DỰ ÁN AGRI-NEXT',
+    posterSubtitle: 'Bootcamp · Ruộng mẫu 1.000 m² · Chiến dịch Young Roots, Green Future',
+    boothHint: 'Mở trang trưng bày toàn bộ dự án Agri-Next Vietnam',
+    query: '?view=project',
+  },
   {
     id: 'games',
     label: 'Cả 3 Trò chơi',
