@@ -283,7 +283,7 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
             className="md:col-span-4 text-left rounded-2xl bg-[#212122] hover:bg-[#2E2E30] transition-colors text-white p-5 sm:p-6 flex flex-col gap-2 cursor-pointer"
           >
             <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#C6D870]">
-              Webinar · {UPCOMING_WEBINAR.status}
+              Webinar · {UPCOMING_WEBINAR.date}
             </div>
             <div className="text-lg font-extrabold leading-snug">{UPCOMING_WEBINAR.title}</div>
           </button>

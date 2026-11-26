@@ -188,6 +188,7 @@ export const CAO_BANG_XANH = {
     { title: 'Đề bài được quan tâm nhất', value: 'Thành chủ đề Webinar toàn quốc' },
   ],
   allEntrants: 'Mọi bài dự thi hợp lệ đều nhận Giấy chứng nhận điện tử (e-certificate) từ Agri-Next Vietnam.',
+  rulesUrl: 'https://docs.google.com/document/d/1UudZ11cgA5RME6ZJOEJdC_5JQJSpV5htBYeBcaPufww/edit',
   howToSubmit:
     'Gửi qua Email của Ban Tổ chức hoặc nhắn tin Fanpage Agri-Next Vietnam, tiêu đề: [CBX] Họ tên – Dạng 1/Dạng 2 – Tên bài dự thi.',
   scoring: '70% điểm Ban Giám khảo + 30% điểm tiếp cận trên mạng xã hội',
@@ -198,7 +199,8 @@ export const UPCOMING_WEBINAR = {
   blurb:
     'Webinar sắp tới của Agri-Next: cùng chuyên gia và các bạn trẻ tranh luận liệu thu nhập và bền vững có phải là hai lựa chọn đối lập — và làm sao để nông nghiệp vùng cao có cả hai.',
   status: 'Sắp diễn ra',
-  cta: 'Theo dõi Fanpage để nhận lịch & link đăng ký',
+  date: '27/12/2026',
+  cta: 'Theo dõi Fanpage để nhận link tham gia',
 };
 
 export const CORE_VALUES = [

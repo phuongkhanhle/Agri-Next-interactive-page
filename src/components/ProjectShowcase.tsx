@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2, Gift, Mail, Mic, Quote, Sprout, Trophy, Users } from 'lucide-react';
+import { ArrowRight, CalendarDays, CheckCircle2, Gift, Mail, Mic, Quote, Sprout, Trophy, Users } from 'lucide-react';
 import { CaoBangExplorer } from './CaoBangExplorer';
 import {
   BOOTCAMP_FORMAT,
@@ -324,7 +324,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
               <div className="px-6 sm:px-8 py-4 bg-[#556B2F] text-white flex flex-wrap items-center justify-between gap-3">
                 <p className="text-xs sm:text-sm text-[#EFF5D2] max-w-xl">{CAO_BANG_XANH.howToSubmit}</p>
                 <a
-                  href={SOCIAL_LINKS.facebook}
+                  href={CAO_BANG_XANH.rulesUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#F4991A] hover:bg-[#D9810D] text-[#212122] text-sm font-bold whitespace-nowrap"
@@ -344,6 +344,13 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
                   <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-[#F4991A] text-[#212122]">
                     {UPCOMING_WEBINAR.status}
                   </span>
+                </div>
+                <div className="flex items-center gap-3 rounded-xl bg-white/8 border border-white/15 px-4 py-3">
+                  <CalendarDays className="w-6 h-6 text-[#F4991A] shrink-0" />
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-white/60">Ngày diễn ra</div>
+                    <div className="font-mono-num text-xl font-bold">{UPCOMING_WEBINAR.date}</div>
+                  </div>
                 </div>
                 <h3 className="text-2xl font-black leading-tight">{UPCOMING_WEBINAR.title}</h3>
                 <p className="text-sm text-white/80 leading-relaxed">{UPCOMING_WEBINAR.blurb}</p>
