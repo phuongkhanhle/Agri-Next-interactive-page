@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  /* Exact Agri-Next Vietnam Brand Palette (AgriElement PDF Page 4) */
+  --agri-olive: #556B2F;
+  --agri-olive-deep: #3E5021;
+  --agri-moss: #8FA31E;
+  --agri-lime: #C6D870;
+  --agri-cream: #EFF5D2;
+  --agri-canvas: #F9FBF1;
+  --agri-amber: #F4991A;
+  --agri-amber-dark: #D9810D;
+  --agri-ink: #212122;
+  --agri-muted: #585A56;
+  --agri-mist: #D2D3D5;
+  --agri-surface: #E8E9EB;
+}
+
+@layer base {
+  html {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    scroll-behavior: smooth;
+    color: var(--agri-ink);
+    background-color: var(--agri-canvas);
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  button, a {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(85, 107, 47, 0.14);
+  }
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.font-brand {
+  font-family: 'Quicksand', 'Montserrat', sans-serif;
+}
+
+.font-mono-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Heritage folk-art hero title stroke matching "Văn Hoá Việt Nam" poster craft, harmonized with Agri-Next Olive & Cream */
+.heritage-title {
+  text-shadow:
+    0 3px 0 #3E5021,
+    0 6px 18px rgba(33, 33, 34, 0.28);
+}
+
+/* Subtle paper grain overlay for editorial heritage panels */
+.parchment-surface {
+  background-color: #EFF5D2;
+  background-image: radial-gradient(rgba(85, 107, 47, 0.045) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

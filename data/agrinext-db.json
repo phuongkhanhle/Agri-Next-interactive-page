@@ -1,0 +1,1724 @@
+{
+  "players": [
+    {
+      "id": "pl-linh-cb",
+      "name": "Nông Khánh Linh",
+      "ageGroup": "16-22",
+      "region": "Cao Bằng",
+      "interest": "Khởi nghiệp nông nghiệp xanh",
+      "avatarType": "leaf",
+      "totalScore": 1585,
+      "bestFarmScore": 620,
+      "bestQuizScore": 715,
+      "bestMarketScore": 250,
+      "gamesPlayed": 5,
+      "avgAccuracy": 94,
+      "persona": "community_weaver",
+      "wtpPremium": 20,
+      "favoriteSpecialty": "Hạt dẻ Trùng Khánh",
+      "buyingFactors": [
+        "Ủng hộ sinh kế thanh niên & đồng bào vùng cao",
+        "Canh tác hữu cơ, bảo vệ đất & khí hậu"
+      ],
+      "preferredChannel": "TikTok / Video ngắn kể chuyện nông dân",
+      "rankTitle": "Thủ Lĩnh Nông Nghiệp Xanh",
+      "badges": [
+        "badge_farm_sim",
+        "badge_quiz",
+        "badge_market",
+        "badge_master"
+      ],
+      "checkInCode": "AGRI-257A",
+      "createdAt": "2026-11-21T15:22:09.971Z",
+      "lastActiveAt": "2026-11-25T12:22:09.971Z"
+    },
+    {
+      "id": "pl-minh-hn",
+      "name": "Trần Nhật Minh",
+      "ageGroup": "23-30",
+      "region": "Hà Nội",
+      "interest": "Tiêu dùng nông sản sạch",
+      "avatarType": "grain",
+      "totalScore": 1490,
+      "bestFarmScore": 590,
+      "bestQuizScore": 650,
+      "bestMarketScore": 250,
+      "gamesPlayed": 4,
+      "avgAccuracy": 88,
+      "persona": "eco_guardian",
+      "wtpPremium": 20,
+      "favoriteSpecialty": "Miến dong Phia Đén",
+      "buyingFactors": [
+        "Nguồn gốc minh bạch (QR / Chỉ dẫn địa lý)",
+        "Canh tác hữu cơ, bảo vệ đất & khí hậu"
+      ],
+      "preferredChannel": "Website chính thức của Agri-Next",
+      "rankTitle": "Thủ Lĩnh Nông Nghiệp Xanh",
+      "badges": [
+        "badge_farm_sim",
+        "badge_quiz",
+        "badge_market",
+        "badge_master"
+      ],
+      "checkInCode": "AGRI-480F",
+      "createdAt": "2026-11-22T03:22:09.971Z",
+      "lastActiveAt": "2026-11-25T10:22:09.971Z"
+    },
+    {
+      "id": "pl-thao-hcm",
+      "name": "Lê Phương Thảo",
+      "ageGroup": "23-30",
+      "region": "TP. Hồ Chí Minh",
+      "interest": "Du lịch trải nghiệm Cao Bằng",
+      "avatarType": "leaf",
+      "totalScore": 1410,
+      "bestFarmScore": 560,
+      "bestQuizScore": 600,
+      "bestMarketScore": 250,
+      "gamesPlayed": 3,
+      "avgAccuracy": 86,
+      "persona": "agri_innovator",
+      "wtpPremium": 30,
+      "favoriteSpecialty": "Hạt dẻ Trùng Khánh",
+      "buyingFactors": [
+        "Bao bì xanh, đẹp để làm quà tặng",
+        "Nguồn gốc minh bạch (QR / Chỉ dẫn địa lý)"
+      ],
+      "preferredChannel": "Facebook / Instagram cộng đồng xanh",
+      "rankTitle": "Thủ Lĩnh Nông Nghiệp Xanh",
+      "badges": [
+        "badge_farm_sim",
+        "badge_quiz",
+        "badge_market",
+        "badge_master"
+      ],
+      "checkInCode": "AGRI-A8B4",
+      "createdAt": "2026-11-22T15:22:09.971Z",
+      "lastActiveAt": "2026-11-25T08:22:09.971Z"
+    },
+    {
+      "id": "pl-hung-cb",
+      "name": "Hoàng Văn Hùng",
+      "ageGroup": "16-22",
+      "region": "Cao Bằng",
+      "interest": "Khởi nghiệp nông nghiệp xanh",
+      "avatarType": "grain",
+      "totalScore": 1295,
+      "bestFarmScore": 545,
+      "bestQuizScore": 500,
+      "bestMarketScore": 250,
+      "gamesPlayed": 4,
+      "avgAccuracy": 79,
+      "persona": "agri_innovator",
+      "wtpPremium": 10,
+      "favoriteSpecialty": "Thạch đen Đông Khê",
+      "buyingFactors": [
+        "Ủng hộ sinh kế thanh niên & đồng bào vùng cao",
+        "Hương vị đặc sản bản địa độc đáo"
+      ],
+      "preferredChannel": "TikTok / Video ngắn kể chuyện nông dân",
+      "rankTitle": "Đại Sứ Non Nước Cao Bằng",
+      "badges": [
+        "badge_farm_sim",
+        "badge_quiz",
+        "badge_market",
+        "badge_master"
+      ],
+      "checkInCode": "AGRI-56BD",
+      "createdAt": "2026-11-22T19:22:09.971Z",
+      "lastActiveAt": "2026-11-25T06:22:09.971Z"
+    },
+    {
+      "id": "pl-anh-hn",
+      "name": "Nguyễn Ngọc Anh",
+      "ageGroup": "16-22",
+      "region": "Hà Nội",
+      "interest": "Học tập & Nghiên cứu khí hậu",
+      "avatarType": "leaf",
+      "totalScore": 1210,
+      "bestFarmScore": 510,
+      "bestQuizScore": 450,
+      "bestMarketScore": 250,
+      "gamesPlayed": 3,
+      "avgAccuracy": 75,
+      "persona": "eco_guardian",
+      "wtpPremium": 20,
+      "favoriteSpecialty": "Lê & Dược liệu Bảo Lạc",
+      "buyingFactors": [
+        "Canh tác hữu cơ, bảo vệ đất & khí hậu",
+        "Nguồn gốc minh bạch (QR / Chỉ dẫn địa lý)"
+      ],
+      "preferredChannel": "Facebook / Instagram cộng đồng xanh",
+      "rankTitle": "Đại Sứ Non Nước Cao Bằng",
+      "badges": [
+        "badge_farm_sim",
+        "badge_quiz",
+        "badge_market",
+        "badge_master"
+      ],
+      "checkInCode": "AGRI-3A4E",
+      "createdAt": "2026-11-23T03:22:09.971Z",
+      "lastActiveAt": "2026-11-25T03:22:09.971Z"
+    },
+    {
+      "id": "pl-quynh-mb",
+      "name": "Đàm Thúy Quỳnh",
+      "ageGroup": "23-30",
+      "region": "Các tỉnh miền núi phía Bắc",
+      "interest": "Khởi nghiệp nông nghiệp xanh",
+      "avatarType": "leaf",
+      "totalScore": 1085,
+      "bestFarmScore": 485,
+      "bestQuizScore": 350,
+      "bestMarketScore": 250,
+      "gamesPlayed": 3,
+      "avgAccuracy": 72,
+      "persona": "community_weaver",
+      "wtpPremium": 10,
+      "favoriteSpecialty": "Thạch đen Đông Khê",
+      "buyingFactors": [
+        "Hương vị đặc sản bản địa độc đáo",
+        "Giá cả hợp lý & dễ đặt mua online"
+      ],
+      "preferredChannel": "Sàn TMĐT (Shopee / Lazada Mall OCOP)",
+      "rankTitle": "Đại Sứ Non Nước Cao Bằng",
+      "badges": [
+        "badge_farm_sim",
+        "badge_quiz",
+        "badge_market",
+        "badge_master"
+      ],
+      "checkInCode": "AGRI-D396",
+      "createdAt": "2026-11-23T13:22:09.971Z",
+      "lastActiveAt": "2026-11-25T00:22:09.971Z"
+    },
+    {
+      "id": "pl-duc-hn",
+      "name": "Phạm Gia Đức",
+      "ageGroup": "31-45",
+      "region": "Hà Nội",
+      "interest": "Tiêu dùng nông sản sạch",
+      "avatarType": "grain",
+      "totalScore": 990,
+      "bestFarmScore": 440,
+      "bestQuizScore": 300,
+      "bestMarketScore": 250,
+      "gamesPlayed": 3,
+      "avgAccuracy": 68,
+      "persona": "market_builder",
+      "wtpPremium": 20,
+      "favoriteSpecialty": "Miến dong Phia Đén",
+      "buyingFactors": [
+        "Nguồn gốc minh bạch (QR / Chỉ dẫn địa lý)",
+        "Hương vị đặc sản bản địa độc đáo"
+      ],
+      "preferredChannel": "Sàn TMĐT (Shopee / Lazada Mall OCOP)",
+      "rankTitle": "Đại Sứ Non Nước Cao Bằng",
+      "badges": [
+        "badge_farm_sim",
+        "badge_quiz",
+        "badge_market",
+        "badge_master"
+      ],
+      "checkInCode": "AGRI-7C6C",
+      "createdAt": "2026-11-23T21:22:09.971Z",
+      "lastActiveAt": "2026-11-24T21:22:09.971Z"
+    },
+    {
+      "id": "pl-vy-hcm",
+      "name": "Võ Tường Vy",
+      "ageGroup": "16-22",
+      "region": "TP. Hồ Chí Minh",
+      "interest": "Học tập & Nghiên cứu khí hậu",
+      "avatarType": "leaf",
+      "totalScore": 865,
+      "bestFarmScore": 465,
+      "bestQuizScore": 400,
+      "bestMarketScore": 0,
+      "gamesPlayed": 2,
+      "avgAccuracy": 78,
+      "persona": "eco_guardian",
+      "wtpPremium": 10,
+      "favoriteSpecialty": "Hạt dẻ Trùng Khánh",
+      "buyingFactors": [
+        "Canh tác hữu cơ, bảo vệ đất & khí hậu"
+      ],
+      "preferredChannel": "TikTok / Video ngắn kể chuyện nông dân",
+      "rankTitle": "Người Gieo Hạt Tái Sinh",
+      "badges": [
+        "badge_farm_sim",
+        "badge_quiz"
+      ],
+      "checkInCode": "AGRI-840B",
+      "createdAt": "2026-11-24T03:22:09.971Z",
+      "lastActiveAt": "2026-11-24T19:22:09.971Z"
+    },
+    {
+      "id": "pl-khoa-dn",
+      "name": "Bùi Đăng Khoa",
+      "ageGroup": "23-30",
+      "region": "Tỉnh/Thành khác",
+      "interest": "Du lịch trải nghiệm Cao Bằng",
+      "avatarType": "grain",
+      "totalScore": 730,
+      "bestFarmScore": 480,
+      "bestQuizScore": 0,
+      "bestMarketScore": 250,
+      "gamesPlayed": 2,
+      "avgAccuracy": 82,
+      "persona": "market_builder",
+      "wtpPremium": 10,
+      "favoriteSpecialty": "Lê & Dược liệu Bảo Lạc",
+      "buyingFactors": [
+        "Hương vị đặc sản bản địa độc đáo",
+        "Bao bì xanh, đẹp để làm quà tặng"
+      ],
+      "preferredChannel": "Hội chợ nông sản & Du lịch trải nghiệm tại Cao Bằng",
+      "rankTitle": "Người Gieo Hạt Tái Sinh",
+      "badges": [
+        "badge_farm_sim",
+        "badge_market"
+      ],
+      "checkInCode": "AGRI-1E71",
+      "createdAt": "2026-11-24T11:22:09.971Z",
+      "lastActiveAt": "2026-11-24T17:22:09.971Z"
+    },
+    {
+      "id": "pl-mai-cb",
+      "name": "Triệu Thị Mai",
+      "ageGroup": "16-22",
+      "region": "Cao Bằng",
+      "interest": "Khởi nghiệp nông nghiệp xanh",
+      "avatarType": "leaf",
+      "totalScore": 610,
+      "bestFarmScore": 360,
+      "bestQuizScore": 250,
+      "bestMarketScore": 0,
+      "gamesPlayed": 2,
+      "avgAccuracy": 65,
+      "persona": "community_weaver",
+      "wtpPremium": 0,
+      "favoriteSpecialty": "Thạch đen Đông Khê",
+      "buyingFactors": [
+        "Giá cả hợp lý & dễ đặt mua online"
+      ],
+      "preferredChannel": "Facebook / Instagram cộng đồng xanh",
+      "rankTitle": "Người Gieo Hạt Tái Sinh",
+      "badges": [
+        "badge_farm_sim",
+        "badge_quiz"
+      ],
+      "checkInCode": "AGRI-F0AD",
+      "createdAt": "2026-11-24T23:22:09.971Z",
+      "lastActiveAt": "2026-11-25T09:22:09.971Z"
+    },
+    {
+      "id": "pl-7b3c2f76a4",
+      "name": "Bạn trẻ Xanh #CB80",
+      "ageGroup": "16-22",
+      "region": "Hà Nội",
+      "interest": "Tiêu dùng nông sản sạch",
+      "avatarType": "leaf",
+      "totalScore": 250,
+      "bestFarmScore": 0,
+      "bestQuizScore": 0,
+      "bestMarketScore": 250,
+      "gamesPlayed": 1,
+      "avgAccuracy": 100,
+      "persona": null,
+      "wtpPremium": 20,
+      "favoriteSpecialty": "Hạt dẻ Trùng Khánh",
+      "buyingFactors": [],
+      "preferredChannel": null,
+      "rankTitle": "Mầm Xanh Khám Phá",
+      "badges": [
+        "badge_market"
+      ],
+      "checkInCode": "AGRI-295F",
+      "createdAt": "2026-11-25T15:43:55.611Z",
+      "lastActiveAt": "2026-11-25T15:43:55.611Z"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "ss-1",
+      "playerId": "pl-linh-cb",
+      "playerName": "Nông Khánh Linh",
+      "region": "Cao Bằng",
+      "gameType": "farm_sim",
+      "score": 620,
+      "maxScore": 680,
+      "accuracy": 92,
+      "durationSec": 118,
+      "metadata": {
+        "persona": "community_weaver"
+      },
+      "createdAt": "2026-11-21T21:22:09.971Z"
+    },
+    {
+      "id": "ss-2",
+      "playerId": "pl-linh-cb",
+      "playerName": "Nông Khánh Linh",
+      "region": "Cao Bằng",
+      "gameType": "cao_bang_quiz",
+      "score": 715,
+      "maxScore": 800,
+      "accuracy": 100,
+      "durationSec": 64,
+      "metadata": {
+        "quizTopics": [
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": true
+          },
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": true
+          },
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": true
+          },
+          {
+            "topic": "Nông nghiệp tái sinh",
+            "correct": true
+          },
+          {
+            "topic": "Thích ứng khí hậu Cao Bằng",
+            "correct": true
+          },
+          {
+            "topic": "Nông nghiệp tái sinh",
+            "correct": true
+          },
+          {
+            "topic": "Khởi nghiệp xanh & OCOP",
+            "correct": true
+          },
+          {
+            "topic": "Khởi nghiệp xanh & OCOP",
+            "correct": true
+          }
+        ]
+      },
+      "createdAt": "2026-11-21T23:22:09.971Z"
+    },
+    {
+      "id": "ss-3",
+      "playerId": "pl-linh-cb",
+      "playerName": "Nông Khánh Linh",
+      "region": "Cao Bằng",
+      "gameType": "market_basket",
+      "score": 250,
+      "maxScore": 250,
+      "accuracy": 100,
+      "durationSec": 52,
+      "metadata": {
+        "selectedProducts": [
+          "Hạt dẻ Trùng Khánh rang củi (500g)",
+          "Trà lá Thạch đen Đông Khê hữu cơ",
+          "Voucher Trải nghiệm Ruộng mẫu 1.000 m²"
+        ],
+        "wtpPremium": 20,
+        "buyingFactors": [
+          "Ủng hộ sinh kế thanh niên & đồng bào vùng cao",
+          "Canh tác hữu cơ, bảo vệ đất & khí hậu"
+        ],
+        "preferredChannel": "TikTok / Video ngắn kể chuyện nông dân",
+        "totalSpent": 405000
+      },
+      "createdAt": "2026-11-25T12:22:09.971Z"
+    },
+    {
+      "id": "ss-4",
+      "playerId": "pl-minh-hn",
+      "playerName": "Trần Nhật Minh",
+      "region": "Hà Nội",
+      "gameType": "farm_sim",
+      "score": 590,
+      "maxScore": 680,
+      "accuracy": 88,
+      "durationSec": 132,
+      "metadata": {
+        "persona": "eco_guardian"
+      },
+      "createdAt": "2026-11-22T07:22:09.971Z"
+    },
+    {
+      "id": "ss-5",
+      "playerId": "pl-minh-hn",
+      "playerName": "Trần Nhật Minh",
+      "region": "Hà Nội",
+      "gameType": "cao_bang_quiz",
+      "score": 650,
+      "maxScore": 800,
+      "accuracy": 88,
+      "durationSec": 75,
+      "metadata": {
+        "quizTopics": [
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": true
+          },
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": true
+          },
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": false
+          },
+          {
+            "topic": "Nông nghiệp tái sinh",
+            "correct": true
+          },
+          {
+            "topic": "Thích ứng khí hậu Cao Bằng",
+            "correct": true
+          },
+          {
+            "topic": "Nông nghiệp tái sinh",
+            "correct": true
+          },
+          {
+            "topic": "Khởi nghiệp xanh & OCOP",
+            "correct": true
+          },
+          {
+            "topic": "Khởi nghiệp xanh & OCOP",
+            "correct": true
+          }
+        ]
+      },
+      "createdAt": "2026-11-22T09:22:09.971Z"
+    },
+    {
+      "id": "ss-6",
+      "playerId": "pl-minh-hn",
+      "playerName": "Trần Nhật Minh",
+      "region": "Hà Nội",
+      "gameType": "market_basket",
+      "score": 250,
+      "maxScore": 250,
+      "accuracy": 100,
+      "durationSec": 49,
+      "metadata": {
+        "selectedProducts": [
+          "Hạt dẻ Trùng Khánh rang củi (500g)",
+          "Miến dong Phia Đén nguyên chất (500g)",
+          "Mật ong hoa rừng Non Nước (250ml)"
+        ],
+        "wtpPremium": 20,
+        "buyingFactors": [
+          "Nguồn gốc minh bạch (QR / Chỉ dẫn địa lý)",
+          "Canh tác hữu cơ, bảo vệ đất & khí hậu"
+        ],
+        "preferredChannel": "Website chính thức của Agri-Next",
+        "totalSpent": 405000
+      },
+      "createdAt": "2026-11-25T10:22:09.971Z"
+    },
+    {
+      "id": "ss-7",
+      "playerId": "pl-thao-hcm",
+      "playerName": "Lê Phương Thảo",
+      "region": "TP. Hồ Chí Minh",
+      "gameType": "cao_bang_quiz",
+      "score": 600,
+      "maxScore": 800,
+      "accuracy": 75,
+      "durationSec": 82,
+      "metadata": {
+        "quizTopics": [
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": true
+          },
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": true
+          },
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": false
+          },
+          {
+            "topic": "Nông nghiệp tái sinh",
+            "correct": false
+          },
+          {
+            "topic": "Thích ứng khí hậu Cao Bằng",
+            "correct": true
+          },
+          {
+            "topic": "Nông nghiệp tái sinh",
+            "correct": true
+          },
+          {
+            "topic": "Khởi nghiệp xanh & OCOP",
+            "correct": true
+          },
+          {
+            "topic": "Khởi nghiệp xanh & OCOP",
+            "correct": true
+          }
+        ]
+      },
+      "createdAt": "2026-11-23T23:22:09.971Z"
+    },
+    {
+      "id": "ss-8",
+      "playerId": "pl-thao-hcm",
+      "playerName": "Lê Phương Thảo",
+      "region": "TP. Hồ Chí Minh",
+      "gameType": "market_basket",
+      "score": 250,
+      "maxScore": 250,
+      "accuracy": 100,
+      "durationSec": 61,
+      "metadata": {
+        "selectedProducts": [
+          "Hạt dẻ Trùng Khánh rang củi (500g)",
+          "Trà thảo dược & Lê sấy dẻo Bảo Lạc",
+          "Voucher Trải nghiệm Ruộng mẫu 1.000 m²"
+        ],
+        "wtpPremium": 30,
+        "buyingFactors": [
+          "Bao bì xanh, đẹp để làm quà tặng",
+          "Nguồn gốc minh bạch (QR / Chỉ dẫn địa lý)"
+        ],
+        "preferredChannel": "Facebook / Instagram cộng đồng xanh",
+        "totalSpent": 430000
+      },
+      "createdAt": "2026-11-25T08:22:09.971Z"
+    },
+    {
+      "id": "ss-9",
+      "playerId": "pl-hung-cb",
+      "playerName": "Hoàng Văn Hùng",
+      "region": "Cao Bằng",
+      "gameType": "cao_bang_quiz",
+      "score": 500,
+      "maxScore": 800,
+      "accuracy": 63,
+      "durationSec": 91,
+      "metadata": {
+        "quizTopics": [
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": true
+          },
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": true
+          },
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": true
+          },
+          {
+            "topic": "Nông nghiệp tái sinh",
+            "correct": false
+          },
+          {
+            "topic": "Thích ứng khí hậu Cao Bằng",
+            "correct": true
+          },
+          {
+            "topic": "Nông nghiệp tái sinh",
+            "correct": false
+          },
+          {
+            "topic": "Khởi nghiệp xanh & OCOP",
+            "correct": false
+          },
+          {
+            "topic": "Khởi nghiệp xanh & OCOP",
+            "correct": true
+          }
+        ]
+      },
+      "createdAt": "2026-11-24T09:22:09.971Z"
+    },
+    {
+      "id": "ss-10",
+      "playerId": "pl-anh-hn",
+      "playerName": "Nguyễn Ngọc Anh",
+      "region": "Hà Nội",
+      "gameType": "cao_bang_quiz",
+      "score": 450,
+      "maxScore": 800,
+      "accuracy": 63,
+      "durationSec": 88,
+      "metadata": {
+        "quizTopics": [
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": true
+          },
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": false
+          },
+          {
+            "topic": "Đặc sản & Chỉ dẫn địa lý",
+            "correct": false
+          },
+          {
+            "topic": "Nông nghiệp tái sinh",
+            "correct": true
+          },
+          {
+            "topic": "Thích ứng khí hậu Cao Bằng",
+            "correct": true
+          },
+          {
+            "topic": "Nông nghiệp tái sinh",
+            "correct": true
+          },
+          {
+            "topic": "Khởi nghiệp xanh & OCOP",
+            "correct": true
+          },
+          {
+            "topic": "Khởi nghiệp xanh & OCOP",
+            "correct": false
+          }
+        ]
+      },
+      "createdAt": "2026-11-24T15:22:09.971Z"
+    },
+    {
+      "id": "ss-11",
+      "playerId": "pl-duc-hn",
+      "playerName": "Phạm Gia Đức",
+      "region": "Hà Nội",
+      "gameType": "market_basket",
+      "score": 250,
+      "maxScore": 250,
+      "accuracy": 100,
+      "durationSec": 55,
+      "metadata": {
+        "selectedProducts": [
+          "Miến dong Phia Đén nguyên chất (500g)",
+          "Hạt dẻ Trùng Khánh rang củi (500g)",
+          "Trà lá Thạch đen Đông Khê hữu cơ"
+        ],
+        "wtpPremium": 20,
+        "buyingFactors": [
+          "Nguồn gốc minh bạch (QR / Chỉ dẫn địa lý)",
+          "Hương vị đặc sản bản địa độc đáo"
+        ],
+        "preferredChannel": "Sàn TMĐT (Shopee / Lazada Mall OCOP)",
+        "totalSpent": 350000
+      },
+      "createdAt": "2026-11-24T21:22:09.971Z"
+    },
+    {
+      "id": "ss-12",
+      "playerId": "pl-quynh-mb",
+      "playerName": "Đàm Thúy Quỳnh",
+      "region": "Các tỉnh miền núi phía Bắc",
+      "gameType": "market_basket",
+      "score": 250,
+      "maxScore": 250,
+      "accuracy": 100,
+      "durationSec": 59,
+      "metadata": {
+        "selectedProducts": [
+          "Trà lá Thạch đen Đông Khê hữu cơ",
+          "Miến dong Phia Đén nguyên chất (500g)",
+          "Trà thảo dược & Lê sấy dẻo Bảo Lạc"
+        ],
+        "wtpPremium": 10,
+        "buyingFactors": [
+          "Hương vị đặc sản bản địa độc đáo",
+          "Giá cả hợp lý & dễ đặt mua online"
+        ],
+        "preferredChannel": "Sàn TMĐT (Shopee / Lazada Mall OCOP)",
+        "totalSpent": 340000
+      },
+      "createdAt": "2026-11-25T00:22:09.971Z"
+    },
+    {
+      "id": "ss-1fc24b67fb",
+      "playerId": "pl-7b3c2f76a4",
+      "playerName": "Bạn trẻ Xanh #CB80",
+      "region": "Hà Nội",
+      "gameType": "market_basket",
+      "score": 250,
+      "maxScore": 250,
+      "accuracy": 100,
+      "durationSec": 30,
+      "metadata": {
+        "selectedProducts": [
+          "Hạt dẻ Trùng Khánh rang củi (500g)"
+        ],
+        "wtpPremium": 20
+      },
+      "createdAt": "2026-11-25T15:43:55.611Z"
+    }
+  ],
+  "events": [
+    {
+      "id": "ev-pv-0",
+      "sessionId": "seed-s-0",
+      "playerId": "pl-linh-cb",
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T14:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-1",
+      "sessionId": "seed-s-1",
+      "playerId": "pl-minh-hn",
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T13:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-2",
+      "sessionId": "seed-s-2",
+      "playerId": "pl-thao-hcm",
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T12:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-3",
+      "sessionId": "seed-s-3",
+      "playerId": "pl-hung-cb",
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T11:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-4",
+      "sessionId": "seed-s-4",
+      "playerId": "pl-anh-hn",
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T10:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-5",
+      "sessionId": "seed-s-5",
+      "playerId": "pl-quynh-mb",
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T09:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-6",
+      "sessionId": "seed-s-6",
+      "playerId": "pl-duc-hn",
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T08:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-7",
+      "sessionId": "seed-s-7",
+      "playerId": "pl-vy-hcm",
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T07:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-8",
+      "sessionId": "seed-s-8",
+      "playerId": "pl-khoa-dn",
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T06:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-9",
+      "sessionId": "seed-s-9",
+      "playerId": "pl-mai-cb",
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T05:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-10",
+      "sessionId": "seed-s-10",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T04:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-11",
+      "sessionId": "seed-s-11",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T03:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-12",
+      "sessionId": "seed-s-12",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T02:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-13",
+      "sessionId": "seed-s-13",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T01:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-14",
+      "sessionId": "seed-s-14",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T00:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-15",
+      "sessionId": "seed-s-15",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T23:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-16",
+      "sessionId": "seed-s-16",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T22:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-17",
+      "sessionId": "seed-s-17",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T21:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-18",
+      "sessionId": "seed-s-18",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T20:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-19",
+      "sessionId": "seed-s-19",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T19:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-20",
+      "sessionId": "seed-s-20",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T18:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-21",
+      "sessionId": "seed-s-21",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T17:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-22",
+      "sessionId": "seed-s-22",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T16:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-23",
+      "sessionId": "seed-s-23",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T15:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-24",
+      "sessionId": "seed-s-24",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T14:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-25",
+      "sessionId": "seed-s-25",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T13:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-26",
+      "sessionId": "seed-s-26",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T12:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-27",
+      "sessionId": "seed-s-27",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T11:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-28",
+      "sessionId": "seed-s-28",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T10:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-29",
+      "sessionId": "seed-s-29",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T09:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-30",
+      "sessionId": "seed-s-30",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T08:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-31",
+      "sessionId": "seed-s-31",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T07:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-32",
+      "sessionId": "seed-s-32",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T06:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-33",
+      "sessionId": "seed-s-33",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T05:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-34",
+      "sessionId": "seed-s-34",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T04:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-35",
+      "sessionId": "seed-s-35",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T03:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-36",
+      "sessionId": "seed-s-36",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T02:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-37",
+      "sessionId": "seed-s-37",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T01:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-38",
+      "sessionId": "seed-s-38",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T00:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-39",
+      "sessionId": "seed-s-39",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-23T23:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-40",
+      "sessionId": "seed-s-40",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-23T22:22:09.971Z"
+    },
+    {
+      "id": "ev-pv-41",
+      "sessionId": "seed-s-41",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-23T21:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-0",
+      "sessionId": "seed-s-0",
+      "playerId": "pl-linh-cb",
+      "eventType": "crop_explored",
+      "target": "hat-de-trung-khanh",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T14:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-1",
+      "sessionId": "seed-s-1",
+      "playerId": "pl-minh-hn",
+      "eventType": "crop_explored",
+      "target": "thach-den-dong-khe",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T13:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-2",
+      "sessionId": "seed-s-2",
+      "playerId": "pl-thao-hcm",
+      "eventType": "crop_explored",
+      "target": "mien-dong-phia-den",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T12:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-3",
+      "sessionId": "seed-s-3",
+      "playerId": "pl-hung-cb",
+      "eventType": "crop_explored",
+      "target": "le-duoc-lieu-bao-lac",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T11:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-4",
+      "sessionId": "seed-s-4",
+      "playerId": "pl-anh-hn",
+      "eventType": "crop_explored",
+      "target": "hat-de-trung-khanh",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T10:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-5",
+      "sessionId": "seed-s-5",
+      "playerId": "pl-quynh-mb",
+      "eventType": "crop_explored",
+      "target": "thach-den-dong-khe",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T09:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-6",
+      "sessionId": "seed-s-6",
+      "playerId": "pl-duc-hn",
+      "eventType": "crop_explored",
+      "target": "mien-dong-phia-den",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T08:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-7",
+      "sessionId": "seed-s-7",
+      "playerId": "pl-vy-hcm",
+      "eventType": "crop_explored",
+      "target": "le-duoc-lieu-bao-lac",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T07:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-8",
+      "sessionId": "seed-s-8",
+      "playerId": "pl-khoa-dn",
+      "eventType": "crop_explored",
+      "target": "hat-de-trung-khanh",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T06:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-9",
+      "sessionId": "seed-s-9",
+      "playerId": "pl-mai-cb",
+      "eventType": "crop_explored",
+      "target": "thach-den-dong-khe",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T05:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-10",
+      "sessionId": "seed-s-10",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "mien-dong-phia-den",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T04:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-11",
+      "sessionId": "seed-s-11",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "le-duoc-lieu-bao-lac",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T03:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-12",
+      "sessionId": "seed-s-12",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "hat-de-trung-khanh",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T02:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-13",
+      "sessionId": "seed-s-13",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "thach-den-dong-khe",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T01:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-14",
+      "sessionId": "seed-s-14",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "mien-dong-phia-den",
+      "durationMs": 3200,
+      "createdAt": "2026-11-25T00:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-15",
+      "sessionId": "seed-s-15",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "le-duoc-lieu-bao-lac",
+      "durationMs": 3200,
+      "createdAt": "2026-11-24T23:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-16",
+      "sessionId": "seed-s-16",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "hat-de-trung-khanh",
+      "durationMs": 3200,
+      "createdAt": "2026-11-24T22:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-17",
+      "sessionId": "seed-s-17",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "thach-den-dong-khe",
+      "durationMs": 3200,
+      "createdAt": "2026-11-24T21:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-18",
+      "sessionId": "seed-s-18",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "mien-dong-phia-den",
+      "durationMs": 3200,
+      "createdAt": "2026-11-24T20:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-19",
+      "sessionId": "seed-s-19",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "le-duoc-lieu-bao-lac",
+      "durationMs": 3200,
+      "createdAt": "2026-11-24T19:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-20",
+      "sessionId": "seed-s-20",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "hat-de-trung-khanh",
+      "durationMs": 3200,
+      "createdAt": "2026-11-24T18:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-21",
+      "sessionId": "seed-s-21",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "thach-den-dong-khe",
+      "durationMs": 3200,
+      "createdAt": "2026-11-24T17:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-22",
+      "sessionId": "seed-s-22",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "mien-dong-phia-den",
+      "durationMs": 3200,
+      "createdAt": "2026-11-24T16:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-23",
+      "sessionId": "seed-s-23",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "le-duoc-lieu-bao-lac",
+      "durationMs": 3200,
+      "createdAt": "2026-11-24T15:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-24",
+      "sessionId": "seed-s-24",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "hat-de-trung-khanh",
+      "durationMs": 3200,
+      "createdAt": "2026-11-24T14:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-25",
+      "sessionId": "seed-s-25",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "thach-den-dong-khe",
+      "durationMs": 3200,
+      "createdAt": "2026-11-24T13:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-26",
+      "sessionId": "seed-s-26",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "mien-dong-phia-den",
+      "durationMs": 3200,
+      "createdAt": "2026-11-24T12:22:09.971Z"
+    },
+    {
+      "id": "ev-crop-27",
+      "sessionId": "seed-s-27",
+      "playerId": null,
+      "eventType": "crop_explored",
+      "target": "le-duoc-lieu-bao-lac",
+      "durationMs": 3200,
+      "createdAt": "2026-11-24T11:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-0",
+      "sessionId": "seed-s-0",
+      "playerId": "pl-linh-cb",
+      "eventType": "game_started",
+      "target": "farm_sim",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T13:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-1",
+      "sessionId": "seed-s-1",
+      "playerId": "pl-minh-hn",
+      "eventType": "game_started",
+      "target": "cao_bang_quiz",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T12:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-2",
+      "sessionId": "seed-s-2",
+      "playerId": "pl-thao-hcm",
+      "eventType": "game_started",
+      "target": "market_basket",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T11:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-3",
+      "sessionId": "seed-s-3",
+      "playerId": "pl-hung-cb",
+      "eventType": "game_started",
+      "target": "farm_sim",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T10:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-4",
+      "sessionId": "seed-s-4",
+      "playerId": "pl-anh-hn",
+      "eventType": "game_started",
+      "target": "cao_bang_quiz",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T09:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-5",
+      "sessionId": "seed-s-5",
+      "playerId": "pl-quynh-mb",
+      "eventType": "game_started",
+      "target": "market_basket",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T08:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-6",
+      "sessionId": "seed-s-6",
+      "playerId": "pl-duc-hn",
+      "eventType": "game_started",
+      "target": "farm_sim",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T07:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-7",
+      "sessionId": "seed-s-7",
+      "playerId": "pl-vy-hcm",
+      "eventType": "game_started",
+      "target": "cao_bang_quiz",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T06:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-8",
+      "sessionId": "seed-s-8",
+      "playerId": "pl-khoa-dn",
+      "eventType": "game_started",
+      "target": "market_basket",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T05:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-9",
+      "sessionId": "seed-s-9",
+      "playerId": "pl-mai-cb",
+      "eventType": "game_started",
+      "target": "farm_sim",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T04:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-10",
+      "sessionId": "seed-s-10",
+      "playerId": "pl-linh-cb",
+      "eventType": "game_started",
+      "target": "cao_bang_quiz",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T03:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-11",
+      "sessionId": "seed-s-11",
+      "playerId": "pl-minh-hn",
+      "eventType": "game_started",
+      "target": "market_basket",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T02:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-12",
+      "sessionId": "seed-s-12",
+      "playerId": "pl-thao-hcm",
+      "eventType": "game_started",
+      "target": "farm_sim",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T01:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-13",
+      "sessionId": "seed-s-13",
+      "playerId": "pl-hung-cb",
+      "eventType": "game_started",
+      "target": "cao_bang_quiz",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T00:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-14",
+      "sessionId": "seed-s-14",
+      "playerId": "pl-anh-hn",
+      "eventType": "game_started",
+      "target": "market_basket",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T23:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-15",
+      "sessionId": "seed-s-15",
+      "playerId": "pl-quynh-mb",
+      "eventType": "game_started",
+      "target": "farm_sim",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T22:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-16",
+      "sessionId": "seed-s-16",
+      "playerId": "pl-duc-hn",
+      "eventType": "game_started",
+      "target": "cao_bang_quiz",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T21:22:09.971Z"
+    },
+    {
+      "id": "ev-gs-17",
+      "sessionId": "seed-s-17",
+      "playerId": "pl-vy-hcm",
+      "eventType": "game_started",
+      "target": "market_basket",
+      "durationMs": 0,
+      "createdAt": "2026-11-24T20:22:09.971Z"
+    },
+    {
+      "id": "ev-gc-0",
+      "sessionId": "seed-gc-0",
+      "playerId": "pl-linh-cb",
+      "eventType": "game_completed",
+      "target": "farm_sim",
+      "durationMs": 118000,
+      "createdAt": "2026-11-21T21:22:09.971Z"
+    },
+    {
+      "id": "ev-gc-1",
+      "sessionId": "seed-gc-1",
+      "playerId": "pl-linh-cb",
+      "eventType": "game_completed",
+      "target": "cao_bang_quiz",
+      "durationMs": 64000,
+      "createdAt": "2026-11-21T23:22:09.971Z"
+    },
+    {
+      "id": "ev-gc-2",
+      "sessionId": "seed-gc-2",
+      "playerId": "pl-linh-cb",
+      "eventType": "game_completed",
+      "target": "market_basket",
+      "durationMs": 52000,
+      "createdAt": "2026-11-25T12:22:09.971Z"
+    },
+    {
+      "id": "ev-gc-3",
+      "sessionId": "seed-gc-3",
+      "playerId": "pl-minh-hn",
+      "eventType": "game_completed",
+      "target": "farm_sim",
+      "durationMs": 132000,
+      "createdAt": "2026-11-22T07:22:09.971Z"
+    },
+    {
+      "id": "ev-gc-4",
+      "sessionId": "seed-gc-4",
+      "playerId": "pl-minh-hn",
+      "eventType": "game_completed",
+      "target": "cao_bang_quiz",
+      "durationMs": 75000,
+      "createdAt": "2026-11-22T09:22:09.971Z"
+    },
+    {
+      "id": "ev-gc-5",
+      "sessionId": "seed-gc-5",
+      "playerId": "pl-minh-hn",
+      "eventType": "game_completed",
+      "target": "market_basket",
+      "durationMs": 49000,
+      "createdAt": "2026-11-25T10:22:09.971Z"
+    },
+    {
+      "id": "ev-gc-6",
+      "sessionId": "seed-gc-6",
+      "playerId": "pl-thao-hcm",
+      "eventType": "game_completed",
+      "target": "cao_bang_quiz",
+      "durationMs": 82000,
+      "createdAt": "2026-11-23T23:22:09.971Z"
+    },
+    {
+      "id": "ev-gc-7",
+      "sessionId": "seed-gc-7",
+      "playerId": "pl-thao-hcm",
+      "eventType": "game_completed",
+      "target": "market_basket",
+      "durationMs": 61000,
+      "createdAt": "2026-11-25T08:22:09.971Z"
+    },
+    {
+      "id": "ev-gc-8",
+      "sessionId": "seed-gc-8",
+      "playerId": "pl-hung-cb",
+      "eventType": "game_completed",
+      "target": "cao_bang_quiz",
+      "durationMs": 91000,
+      "createdAt": "2026-11-24T09:22:09.971Z"
+    },
+    {
+      "id": "ev-gc-9",
+      "sessionId": "seed-gc-9",
+      "playerId": "pl-anh-hn",
+      "eventType": "game_completed",
+      "target": "cao_bang_quiz",
+      "durationMs": 88000,
+      "createdAt": "2026-11-24T15:22:09.971Z"
+    },
+    {
+      "id": "ev-gc-10",
+      "sessionId": "seed-gc-10",
+      "playerId": "pl-duc-hn",
+      "eventType": "game_completed",
+      "target": "market_basket",
+      "durationMs": 55000,
+      "createdAt": "2026-11-24T21:22:09.971Z"
+    },
+    {
+      "id": "ev-gc-11",
+      "sessionId": "seed-gc-11",
+      "playerId": "pl-quynh-mb",
+      "eventType": "game_completed",
+      "target": "market_basket",
+      "durationMs": 59000,
+      "createdAt": "2026-11-25T00:22:09.971Z"
+    },
+    {
+      "id": "ev-21d9ac2f",
+      "sessionId": "sess-ufoqoq1q",
+      "playerId": null,
+      "eventType": "page_view",
+      "target": "landing",
+      "durationMs": 0,
+      "createdAt": "2026-11-25T15:22:52.820Z"
+    },
+    {
+      "id": "ev-de0925ed",
+      "sessionId": "ss-1fc24b67fb",
+      "playerId": "pl-7b3c2f76a4",
+      "eventType": "game_completed",
+      "target": "market_basket",
+      "durationMs": 30000,
+      "createdAt": "2026-11-25T15:43:55.611Z"
+    }
+  ],
+  "insights": [
+    {
+      "id": "ins-1",
+      "playerId": "pl-linh-cb",
+      "authorName": "Nông Khánh Linh",
+      "region": "Cao Bằng",
+      "topic": "Bootcamp Thanh niên",
+      "favoriteCrop": "Hạt dẻ Trùng Khánh",
+      "message": "Mình mong Agri-Next mở thêm buổi thực hành quay video ngắn kể chuyện mùa dẻ ngay tại Trùng Khánh để các bạn trẻ dân tộc Tày, Nùng tự tin giới thiệu đặc sản quê mình.",
+      "createdAt": "2026-11-24T17:22:09.971Z"
+    },
+    {
+      "id": "ins-2",
+      "playerId": "pl-minh-hn",
+      "authorName": "Trần Nhật Minh",
+      "region": "Hà Nội",
+      "topic": "Nông sản Cao Bằng",
+      "favoriteCrop": "Miến dong Phia Đén",
+      "message": "Ở Hà Nội rất khó phân biệt miến dong Phia Đén thật và hàng pha tạp. Nếu có mã QR xem trực tiếp nhật ký canh tác ruộng mẫu thì mình sẵn sàng đặt mua định kỳ cho gia đình.",
+      "createdAt": "2026-11-25T01:22:09.971Z"
+    },
+    {
+      "id": "ins-3",
+      "playerId": "pl-thao-hcm",
+      "authorName": "Lê Phương Thảo",
+      "region": "TP. Hồ Chí Minh",
+      "topic": "Kênh phân phối",
+      "favoriteCrop": "Hạt dẻ Trùng Khánh",
+      "message": "Bộ hộp quà kết hợp hạt dẻ Trùng Khánh, trà thạch đen và lê sấy Bảo Lạc với bao bì thổ cẩm tối giản sẽ cực kỳ thu hút giới trẻ làm quà tặng dịp lễ Tết.",
+      "createdAt": "2026-11-25T07:22:09.971Z"
+    },
+    {
+      "id": "ins-4",
+      "playerId": "pl-anh-hn",
+      "authorName": "Nguyễn Ngọc Anh",
+      "region": "Hà Nội",
+      "topic": "Nông nghiệp Tái sinh",
+      "favoriteCrop": "Lê & Dược liệu Bảo Lạc",
+      "message": "Chơi game Mùa Vụ Tái Sinh giúp mình lần đầu hiểu rõ tác dụng của việc ủ bã dong riềng thành phân compost chống rửa trôi đất dốc ở Cao Bằng!",
+      "createdAt": "2026-11-25T11:22:09.971Z"
+    }
+  ]
+}

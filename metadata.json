@@ -1,0 +1,8 @@
+{
+  "name": "Agri-Next Vietnam — Nông nghiệp Xanh Cao Bằng",
+  "description": "Mini web giới thiệu dự án Agri-Next Vietnam tại Cao Bằng cùng chuỗi trò chơi tương tác khám phá nông nghiệp bền vững.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
