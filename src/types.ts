@@ -163,3 +163,11 @@ export interface GiftStatus {
   redeemed: number;
   remaining: number;
 }
+
+export interface WebinarSignupRecord {
+  id: string;
+  email: string;
+  name: string;
+  source: string; // where on the site the visitor signed up
+  createdAt: string;
+}

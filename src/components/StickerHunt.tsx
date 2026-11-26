@@ -15,9 +15,11 @@ import {
   STICKER_PASS_SCORE,
   STICKER_QUESTIONS,
   STICKER_QUIZ_LENGTH,
+  UPCOMING_WEBINAR,
   type ShowcaseSectionId,
   type StickerQuestion,
 } from '../data/projectShowcase';
+import { WebinarSignupForm } from './WebinarSignupForm';
 import { BrocadeStrip, GrainMascot, LeafMascot, patternStyle } from './BrandAssets';
 import type { GiftClaimRecord, GiftStatus } from '../types';
 import { gameSound } from '../utils/sound';
@@ -569,6 +571,16 @@ export const StickerHunt: React.FC<StickerHuntProps> = ({
                     </div>
                   </div>
                   <BrocadeStrip tone="amber" heightClass="h-3" />
+                </div>
+
+                <div className="rounded-2xl bg-[#212122] p-5 space-y-3">
+                  <div className="text-white">
+                    <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#C6D870]">
+                      Webinar {UPCOMING_WEBINAR.date} · {UPCOMING_WEBINAR.highlight}
+                    </div>
+                    <div className="text-base font-extrabold leading-snug mt-1">{UPCOMING_WEBINAR.title}</div>
+                  </div>
+                  <WebinarSignupForm source="sticker-voucher" tone="dark" />
                 </div>
 
                 <div className="rounded-2xl bg-[#EFF5D2] p-5 text-center space-y-3">

@@ -13,6 +13,7 @@ import type {
   GameType,
   GiftClaimRecord,
   GiftStatus,
+  WebinarSignupRecord,
   InterestFocus,
   LeaderboardEntry,
   PlayerProfile,
@@ -41,6 +42,7 @@ interface DatabaseSchema {
   events: BehaviorEventRecord[];
   insights: CommunityInsightRecord[];
   gifts: GiftClaimRecord[];
+  webinarSignups: WebinarSignupRecord[];
   giftTotal?: number;
   adminCredentialHash?: string | null;
 }
@@ -792,6 +794,7 @@ function createInitialSeedData(): DatabaseSchema {
     events: seedEvents,
     insights: seedInsights,
     gifts: [],
+    webinarSignups: [],
   };
 }
 
@@ -818,6 +821,7 @@ function loadDb(): DatabaseSchema {
       events: Array.isArray(parsed.events) ? parsed.events : [],
       insights: Array.isArray(parsed.insights) ? parsed.insights : [],
       gifts: Array.isArray(parsed.gifts) ? parsed.gifts : [],
+      webinarSignups: Array.isArray(parsed.webinarSignups) ? parsed.webinarSignups : [],
       giftTotal: typeof parsed.giftTotal === 'number' ? parsed.giftTotal : undefined,
       adminCredentialHash:
         typeof parsed.adminCredentialHash === 'string' ? parsed.adminCredentialHash : null,
@@ -1644,6 +1648,75 @@ async function startServer() {
     db.gifts.push(claim);
     saveDb();
     res.status(201).json({ claim, status: buildGiftStatus() });
+  });
+
+  // ---------------------------------------------------------------------------
+  // Webinar interest list — visitors leave an email to hear when registration opens
+  // ---------------------------------------------------------------------------
+  const webinarAttempts = new Map<string, { count: number; resetAt: number }>();
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  app.post('/api/webinar/subscribe', (req, res) => {
+    const ip = req.ip || 'unknown';
+    const now = Date.now();
+    const attempt = webinarAttempts.get(ip);
+    if (attempt && attempt.resetAt > now && attempt.count >= 30) {
+      res.status(429).json({ error: 'Bạn thao tác hơi nhanh, thử lại sau ít phút nhé.' });
+      return;
+    }
+    webinarAttempts.set(ip, {
+      count: attempt && attempt.resetAt > now ? attempt.count + 1 : 1,
+      resetAt: attempt && attempt.resetAt > now ? attempt.resetAt : now + 10 * 60 * 1000,
+    });
+
+    const email = sanitizeText(req.body?.email, 120).toLowerCase();
+    const name = sanitizeText(req.body?.name, 60);
+    const source = sanitizeText(req.body?.source, 40) || 'web';
+    if (!EMAIL_RE.test(email)) {
+      res.status(400).json({ error: 'Email chưa đúng định dạng, bạn kiểm tra lại giúp mình nhé.' });
+      return;
+    }
+    const existing = db.webinarSignups.find((w) => w.email === email);
+    if (existing) {
+      res.json({ ok: true, alreadySubscribed: true });
+      return;
+    }
+    db.webinarSignups.push({
+      id: `wb-${crypto.randomBytes(5).toString('hex')}`,
+      email,
+      name,
+      source,
+      createdAt: new Date().toISOString(),
+    });
+    saveDb();
+    res.status(201).json({ ok: true });
+  });
+
+  app.get('/api/admin/webinar-signups', requireAdminAuth, (_req, res) => {
+    const signups = [...db.webinarSignups].sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+    res.json({ signups });
+  });
+
+  app.delete('/api/admin/webinar-signups/:id', requireAdminAuth, (req, res) => {
+    const before = db.webinarSignups.length;
+    db.webinarSignups = db.webinarSignups.filter((w) => w.id !== req.params.id);
+    if (db.webinarSignups.length === before) {
+      res.status(404).json({ error: 'Không tìm thấy email.' });
+      return;
+    }
+    saveDb();
+    res.json({ ok: true });
+  });
+
+  app.get('/api/admin/webinar-signups.csv', requireAdminAuth, (_req, res) => {
+    const rows = [
+      ['Email', 'Tên', 'Nguồn', 'Thời gian'],
+      ...db.webinarSignups.map((w) => [w.email, w.name, w.source, w.createdAt]),
+    ];
+    const csv = '\uFEFF' + rows.map((r) => r.map(escapeCsvCell).join(',')).join('\n');
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', 'attachment; filename="agrinext-webinar-signups.csv"');
+    res.send(csv);
   });
 
   // Admin: list gift claims

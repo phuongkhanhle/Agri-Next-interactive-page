@@ -279,7 +279,7 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
           </button>
           <button
             type="button"
-            onClick={() => onOpenProject('du-an-cao-bang-xanh')}
+            onClick={() => onOpenProject('webinar-dang-ky')}
             className="md:col-span-4 text-left rounded-2xl bg-[#212122] hover:bg-[#2E2E30] transition-colors text-white p-5 sm:p-6 flex flex-col gap-2 cursor-pointer"
           >
             <div className="text-[11px] font-extrabold uppercase tracking-wider text-[#C6D870]">
@@ -287,6 +287,9 @@ export const LandingSection: React.FC<LandingSectionProps> = ({
             </div>
             <div className="text-lg font-extrabold leading-snug">{UPCOMING_WEBINAR.title}</div>
             <div className="text-xs font-semibold text-[#F4991A]">🏆 {UPCOMING_WEBINAR.highlight}</div>
+            <div className="mt-auto pt-1 inline-flex items-center gap-1.5 text-xs font-bold text-white/85">
+              Để lại email nhận thông tin đăng ký <ArrowRight className="w-3.5 h-3.5" />
+            </div>
           </button>
         </div>
       </section>

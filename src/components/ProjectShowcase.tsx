@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, CalendarDays, CheckCircle2, Gift, Mail, Mic, Quote, Sprout, Trophy, Users } from 'lucide-react';
 import { CaoBangExplorer } from './CaoBangExplorer';
+import { WebinarSignupForm } from './WebinarSignupForm';
 import {
   BOOTCAMP_FORMAT,
   BOOTCAMP_MODULES,
@@ -335,7 +336,7 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
             </article>
 
             {/* Webinar card */}
-            <article className="lg:col-span-4 lg:self-start lg:sticky lg:top-24 rounded-2xl overflow-hidden bg-[#212122] text-white flex flex-col">
+            <article className="lg:col-span-4 lg:self-start rounded-2xl overflow-hidden bg-[#212122] text-white flex flex-col">
               <div className="p-6 sm:p-7 flex-1 flex flex-col gap-4">
                 <div className="flex items-center justify-between gap-3">
                   <span className="inline-flex items-center gap-1.5 text-[11px] font-extrabold uppercase tracking-wider text-[#C6D870]">
@@ -373,15 +374,9 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
                   <p className="text-xs text-white/75">Bạn chọn bên nào? Mang câu trả lời của bạn đến webinar nhé!</p>
                 </div>
               </div>
-              <a
-                href={SOCIAL_LINKS.facebook}
-                target="_blank"
-                rel="noreferrer"
-                className="px-6 py-4 bg-[#F4991A] hover:bg-[#D9810D] text-[#212122] text-sm font-extrabold flex items-center justify-between gap-2"
-              >
-                {UPCOMING_WEBINAR.cta}
-                <ArrowRight className="w-4 h-4 shrink-0" />
-              </a>
+              <div id="webinar-dang-ky" className="px-6 sm:px-7 py-5 bg-[#2E2E30] border-t border-white/10 scroll-mt-24">
+                <WebinarSignupForm source="project-page" tone="dark" />
+              </div>
             </article>
           </div>
         </section>
